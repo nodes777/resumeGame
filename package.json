@@ -1,21 +1,21 @@
 {
-  "name": "javascript-tiny-platformer",
+  "name": "Portfolio Platformer",
   "version": "1.0.0",
   "description": "Javascript Tiny-Platformer\r ==========================",
-  "main": "fpsmeter.min.js",
+  "main": "platformer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jakesgordon/javascript-tiny-platformer.git"
+    "url": "git+https://github.com/nodes777/resumeGame"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jakesgordon/javascript-tiny-platformer/issues"
+    "url": "https://github.com/nodes777/resumeGame/issues"
   },
-  "homepage": "https://github.com/jakesgordon/javascript-tiny-platformer#readme",
+  "homepage": "https://github.com/nodes777/resumeGame#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",

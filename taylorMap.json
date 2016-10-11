@@ -39,14 +39,6 @@
                  "height":115.151515151515,
                  "id":4,
                  "name":"contact",
-                 "properties":
-                    {
-                     "display":"contact"
-                    },
-                 "propertytypes":
-                    {
-                     "display":"string"
-                    },
                  "rotation":0,
                  "type":"platform",
                  "visible":true,
@@ -58,14 +50,6 @@
                  "height":154.545454545455,
                  "id":5,
                  "name":"websites",
-                 "properties":
-                    {
-                     "display":"websites"
-                    },
-                 "propertytypes":
-                    {
-                     "display":"string"
-                    },
                  "rotation":0,
                  "type":"platform",
                  "visible":true,

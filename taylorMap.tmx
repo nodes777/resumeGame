@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="48" tilewidth="32" tileheight="32" nextobjectid="4">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="48" tilewidth="32" tileheight="32" nextobjectid="6">
  <tileset firstgid="1" name="tiles" tilewidth="32" tileheight="32" tilecount="5" columns="5">
   <image source="tiles.png" width="160" height="32"/>
  </tileset>
@@ -59,6 +59,16 @@
   <object id="1" name="player" type="player" x="380" y="870" width="22" height="22">
    <properties>
     <property name="gravity" value=""/>
+   </properties>
+  </object>
+  <object id="4" name="contact" type="platform" x="293.939" y="1157.58" width="218.182" height="115.152">
+   <properties>
+    <property name="display" value="contact"/>
+   </properties>
+  </object>
+  <object id="5" name="websites" type="platform" x="1057.58" y="803.03" width="254.545" height="154.545">
+   <properties>
+    <property name="display" value="websites"/>
    </properties>
   </object>
  </objectgroup>
