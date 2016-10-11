@@ -179,9 +179,10 @@
 
 
     entity.falling = ! (celldown || (nx && celldiag));
-
-    if (overlap(entity.x, entity.y, TILE, TILE, platforms[0].start.x, platforms[0].start.y, platforms[0].width, platforms[0].height)){
-      console.log('on platform');
+    for(n = 0; n<platforms.length; n++){
+      if (overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height)){
+        //console.log('on platform');
+      }
     }
 
   }
@@ -194,6 +195,7 @@
     ctx.clearRect(0, 0, width, height);
     renderMap(ctx);
     renderPlayer(ctx, dt);
+    renderHeadlines(platforms);
   }
 
   function renderMap(ctx) {
@@ -212,11 +214,16 @@
   function renderPlayer(ctx, dt) {
     ctx.fillStyle = COLOR.BLUE;
     ctx.fillRect(player.x + (player.dx * dt), player.y + (player.dy * dt), TILE, TILE);
-
     var n, max;
-
   }
 
+  function renderHeadlines(plats){
+    for(n = 0; n<plats.length; n++){
+      ctx.font="30px Georgia";
+      ctx.fillStyle = COLOR.YELLOW;
+      ctx.fillText(plats[n].name, plats[n].start.x, plats[n].start.y);
+    }
+  }
   //-------------------------------------------------------------------------
   // LOAD THE MAP
   //-------------------------------------------------------------------------
@@ -242,6 +249,7 @@
 
   function setupEntity(obj) {
     var entity = {};
+    entity.name     = obj.name.charAt(0).toUpperCase() + obj.name.slice(1);
     entity.x        = obj.x;
     entity.y        = obj.y;
     entity.width    = obj.width;
