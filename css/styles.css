@@ -1,8 +1,32 @@
+*{
+    font-family: 'Titillium Web', sans-serif;
+}
+
 .contact{
+    display: none;
+    margin-left: 2em;
 	color: white;
 	position: absolute;
 	z-index: 1;
 	text-align: center;
+}
+
+.websites{
+    display: none;
+    margin-left: 2em;
+    color: white;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+}
+
+.music{
+    display: none;
+    margin-left: 2em;
+    color: white;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
 }
 
 .fadeIn{

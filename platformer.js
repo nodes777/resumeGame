@@ -179,9 +179,10 @@
 
 
     entity.falling = ! (celldown || (nx && celldiag));
+
     for(n = 0; n<platforms.length; n++){
       if (overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height)){
-        //console.log('on platform');
+        document.getElementById(platforms[n].name.toLowerCase()).style.display = 'block';
       }
     }
 
@@ -219,7 +220,7 @@
 
   function renderHeadlines(plats){
     for(n = 0; n<plats.length; n++){
-      ctx.font="30px Georgia";
+      ctx.font="40px Titillium Web";
       ctx.fillStyle = COLOR.YELLOW;
       ctx.fillText(plats[n].name, plats[n].start.x, plats[n].start.y);
     }

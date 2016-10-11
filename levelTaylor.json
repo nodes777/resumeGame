@@ -33,7 +33,7 @@
                  "visible":true,
                  "width":22,
                  "x":380,
-                 "y":870
+                 "y":50
                 }, 
                 {
                  "height":115.151515151515,
@@ -72,6 +72,25 @@
                  "width":254.545454545455,
                  "x":1057.57575757576,
                  "y":803.030303030303
+                }, 
+                {
+                 "height":157.575757575758,
+                 "id":6,
+                 "name":"music",
+                 "properties":
+                    {
+                     "display":"music"
+                    },
+                 "propertytypes":
+                    {
+                     "display":"string"
+                    },
+                 "rotation":0,
+                 "type":"platform",
+                 "visible":true,
+                 "width":227.272727272727,
+                 "x":1409.09090909091,
+                 "y":930.30303030303
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -80,7 +99,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":6,
+ "nextobjectid":8,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tileheight":32,
