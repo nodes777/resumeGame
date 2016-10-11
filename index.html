@@ -5,6 +5,7 @@
   <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
   <title>Javascript Platformer</title>
 
+<link rel="stylesheet" type="text/css" href="css/styles.css">
   <style>
     body            { background: #111; }
     #platformer     { margin: 1em auto; position: relative; width: 512px; height: 384px; }
@@ -23,7 +24,9 @@
 <body>
 
   <div id="platformer">
-
+    <div id="contact" class="contact fadeIn">
+      <b>Taylor Nodell</b> taylor.nodell@gmail.com, 814-308-2529
+    </div>
     <canvas id="canvas">
       <div class="unsupported">
         Sorry, this example cannot be run because your browser does not support the &lt;canvas&gt; element
@@ -31,8 +34,10 @@
     </canvas>
 
     <div id="instructions">
-      <b>LEFT/RIGHT</b> to move, <b>SPACE</b> to jump, collect gold and jump on monsters.
+      <b>LEFT/RIGHT</b> to move, <b>SPACE</b> to jump.
     </div>
+
+    
 
   </div>
 
