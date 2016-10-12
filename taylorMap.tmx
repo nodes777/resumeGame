@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="48" tilewidth="32" tileheight="32" nextobjectid="8">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="48" tilewidth="32" tileheight="32" nextobjectid="9">
  <tileset firstgid="1" name="tiles" tilewidth="32" tileheight="32" tilecount="5" columns="5">
   <image source="tiles.png" width="160" height="32"/>
  </tileset>
@@ -46,8 +46,8 @@
 5,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,5,4,5,4,5,4,5,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,4,
 4,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,5,4,5,4,5,4,5,4,5,4,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,5,
 5,4,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,2,4,5,4,5,4,5,4,5,4,5,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,4,
-4,5,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,5,4,5,4,5,4,5,4,5,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,4,5,
-5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,2,2,2,2,2,2,2,2,2,2,2,2,2,2,4,
+4,5,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,5,4,5,4,5,4,5,4,5,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,1,1,1,1,1,1,1,0,0,4,5,
+5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,2,2,2,2,2,2,2,2,2,2,2,2,2,5,4,
 4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,
 5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,
 4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,
@@ -66,14 +66,19 @@
     <property name="display" value="contact"/>
    </properties>
   </object>
-  <object id="5" name="websites" type="platform" x="1057.58" y="731.03" width="252.545" height="232.545">
+  <object id="5" name="Pong Plus" type="platform" x="1057.58" y="731.03" width="252.545" height="232.545">
    <properties>
-    <property name="display" value="websites"/>
+    <property name="display" value="pong"/>
    </properties>
   </object>
-  <object id="6" name="music" type="platform" x="1409.09" y="891.3" width="219.273" height="199.576">
+  <object id="6" name="Angular Bookstore" type="platform" x="1409.09" y="891.3" width="219.273" height="199.576">
    <properties>
-    <property name="display" value="music"/>
+    <property name="display" value="angular"/>
+   </properties>
+  </object>
+  <object id="8" name="Mapventure" type="platform" x="1696" y="1124" width="220" height="196">
+   <properties>
+    <property name="display" value="mapventure"/>
    </properties>
   </object>
  </objectgroup>

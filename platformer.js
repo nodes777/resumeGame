@@ -182,9 +182,9 @@
 
     for(n = 0; n<platforms.length; n++){
       if (overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height)){
-        $("#"+platforms[n].name.toLowerCase()).fadeIn("slow");
+        $("#"+platforms[n].id).fadeIn("slow");
       } else {
-        $("#"+platforms[n].name.toLowerCase()).fadeOut("slow");
+        $("#"+platforms[n].id).fadeOut("slow");
       }
     }
 
@@ -253,6 +253,7 @@
   function setupEntity(obj) {
     var entity = {};
     entity.name     = obj.name.charAt(0).toUpperCase() + obj.name.slice(1);
+    entity.id       = obj.properties.display;
     entity.x        = obj.x;
     entity.y        = obj.y;
     entity.width    = obj.width;

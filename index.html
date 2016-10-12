@@ -5,9 +5,16 @@
   <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
   <title>Javascript Platformer</title>
 
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 <link rel="stylesheet" type="text/css" href="css/original.css">
 <link rel="stylesheet" type="text/css" href="css/styles.css">
+
 <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+
 <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
 <script>
   WebFont.load({
@@ -20,15 +27,30 @@
 
 <body>
 
-  <div id="platformer">
+  <div id="platformer" class="row">
     <div id="contact" class="contact fadeIn">
       <b>Taylor Nodell</b> taylor.nodell@gmail.com, 814-308-2529
     </div>
-    <div id="websites" class="websites fadeIn">
-      <b>Taylor Nodell</b> Some websites I built
+    <div id="pong" class ="pongplus fadeIn col-md-4">
+        <a href="./pongplus/index.html"><img class = "grow" src="img/pong.JPG"></a>
+        <h4><a href="./pongplus/index.html">Pong Plus</a></h4>
+        <p>A pong clone made with HTML5's Canvas. I use the prototypical method of object construction and my own MV* method to update the scores. You can read about my process <a href="http://tayloredtotaylor.blogspot.com/2016/04/i-made-pong-clone.html">here</a>.</p>
+        <p>Frameworks: Bootstrap, jQuery, MVC, Prototypical Object Construction, </p>
+        <p><a href="https://github.com/nodes777/pongplus">Source Code</a></p>
+      </div>
+    <div id="mapventure" class="mapventure fadeIn col-sm-4">
+        <a href="./mapventure/index.html"><img class = "grow" src="img/mapVenturesmall.JPG"></a>
+        <h4><a href="./mapventure/index.html">Mapventure</a></h4>
+        <p>Based on a Udacity project, I expanded upon my original work to make it more like a game. The player has a "choose your own adventure" style map. Choices are based on a typical day off in Port Douglas, where I spent several months working.</p>
+        <p>Frameworks: Bootstrap, jQuery, knockout.js, Google Maps API, Open Weather API</p>
+        <p><a href="https://github.com/nodes777/mapventure">Source Code</a></p>
     </div>
-    <div id="music" class="music fadeIn">
-      <b>Taylor Nodell</b> Some music I've made
+    <div id="angular" class =" angular fadeIn col-sm-4">
+        <a href="./bookstore/index.html"><img class = "grow" src="img/bookstoresmall.JPG"></a>
+        <h4><a href="./bookstore/index.html">Angular Bookstore</a></h4>
+        <p>My first entry into the world of Angular. This is a book "store", showcasing a few of my favorite books. I give my take on why the book is one of my favorites and then I pull data from Google Books to provide a description, specs and images. </p>
+        <p>Frameworks: Angular.js, Google Books API, JSON, Bootstrap</p>
+        <p><a href="https://github.com/nodes777/shapingUpWithAngular">Source Code</a></p>
     </div>
     <canvas id="canvas">
       <div class="unsupported">
@@ -36,12 +58,12 @@
       </div>
     </canvas>
 
-    <div id="instructions" class="fadeIn">
+    <div id="instructions" class="">
       <b>LEFT/RIGHT</b> to move, <b>SPACE</b> to jump.
     </div>
 
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
   <script src="fpsmeter.min.js"></script>
   <script src="platformer.js"></script>
 

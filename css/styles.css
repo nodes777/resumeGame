@@ -10,7 +10,7 @@
 	text-align: center;
 }
 
-.websites{
+.pongplus{
     margin-left: 2em;
     color: white;
     position: absolute;
@@ -18,7 +18,15 @@
     text-align: center;
 }
 
-.music{
+.mapventure{
+    margin-left: 2em;
+    color: white;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+}
+
+.angular{
     margin-left: 2em;
     color: white;
     position: absolute;
