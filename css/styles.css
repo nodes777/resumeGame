@@ -3,7 +3,6 @@
 }
 
 .contact{
-    display: none;
     margin-left: 2em;
 	color: white;
 	position: absolute;
@@ -12,7 +11,6 @@
 }
 
 .websites{
-    display: none;
     margin-left: 2em;
     color: white;
     position: absolute;
@@ -21,7 +19,6 @@
 }
 
 .music{
-    display: none;
     margin-left: 2em;
     color: white;
     position: absolute;
@@ -30,11 +27,22 @@
 }
 
 .fadeIn{
+    display: none;
 	-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 2s; /* Firefox < 16 */
         -ms-animation: fadein 2s; /* Internet Explorer */
          -o-animation: fadein 2s; /* Opera < 12.1 */
             animation: fadein 2s;
+
+}
+
+.fadeOut{
+    display: block;
+    -webkit-animation: fadeOut 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadeOut 2s; /* Firefox < 16 */
+        -ms-animation: fadeOut 2s; /* Internet Explorer */
+         -o-animation: fadeOut 2s; /* Opera < 12.1 */
+            animation: fadeOut 2s;
 }
 
 @keyframes fadein {
@@ -64,4 +72,34 @@
 @-o-keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
+}
+
+/*Fade out*/
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadeOut {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadeOut {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadeOut {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadeOut {
+    from { opacity: 1; }
+    to   { opacity: 0; }
 }

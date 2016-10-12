@@ -182,7 +182,9 @@
 
     for(n = 0; n<platforms.length; n++){
       if (overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height)){
-        document.getElementById(platforms[n].name.toLowerCase()).style.display = 'block';
+        $("#"+platforms[n].name.toLowerCase()).fadeIn("slow");
+      } else {
+        $("#"+platforms[n].name.toLowerCase()).fadeOut("slow");
       }
     }
 
