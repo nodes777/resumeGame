@@ -3,8 +3,14 @@ Platformer Portfolio
 
 A way to show my portfolio in a unique way
 
- * Based on the physics engine for made in this [original article](http://codeincomplete.com/posts/2013/5/27/tiny_platformer/)
- * view the [source](https://github.com/jakesgordon/javascript-tiny-platformer)
+ * Based on the physics engine for made in this [original article](http://codeincomplete.com/posts/2013/5/27/tiny_platformer/), view the [source](https://github.com/jakesgordon/javascript-tiny-platformer)
+
+TO DOs
+==================
+* Implement mobile version
+* Add music content
+* contact to appear and stay?
+* skills to appear and stay?
 
 SUPPORTED BROWSERS
 ==================
