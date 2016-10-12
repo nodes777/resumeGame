@@ -224,7 +224,7 @@
     for(n = 0; n<plats.length; n++){
       ctx.font="40px Titillium Web";
       ctx.fillStyle = COLOR.YELLOW;
-      ctx.fillText(plats[n].name, plats[n].start.x, plats[n].start.y);
+      ctx.fillText(plats[n].display, plats[n].start.x, plats[n].start.y+plats[n].height-20);
     }
   }
   //-------------------------------------------------------------------------
@@ -253,7 +253,8 @@
   function setupEntity(obj) {
     var entity = {};
     entity.name     = obj.name.charAt(0).toUpperCase() + obj.name.slice(1);
-    entity.id       = obj.properties.display;
+    entity.display  = obj.properties.display;
+    entity.id       = obj.properties.id;
     entity.x        = obj.x;
     entity.y        = obj.y;
     entity.width    = obj.width;

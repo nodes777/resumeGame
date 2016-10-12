@@ -2,6 +2,13 @@
     font-family: 'Titillium Web', sans-serif;
 }
 
+.instructions{
+    margin-top: 50px;
+    margin-left: 1em;
+    color: white;
+    position: absolute;
+    z-index: 1;
+}
 .contact{
     margin-left: 2em;
 	color: white;
@@ -27,6 +34,14 @@
 }
 
 .angular{
+    margin-left: 2em;
+    color: white;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+}
+
+.resume{
     margin-left: 2em;
     color: white;
     position: absolute;
