@@ -197,8 +197,8 @@
   function render(ctx, frame, dt) {
     ctx.clearRect(0, 0, width, height);
     renderMap(ctx);
-    renderPlayer(ctx, dt);
     renderHeadlines(platforms);
+    renderPlayer(ctx, dt);
   }
 
   function renderMap(ctx) {
@@ -300,7 +300,7 @@
   document.addEventListener('keydown', function(ev) { return onkey(ev, ev.keyCode, true);  }, false);
   document.addEventListener('keyup',   function(ev) { return onkey(ev, ev.keyCode, false); }, false);
 
-  get("levelTaylor.json", function(req) {
+  get("taylorMap.json", function(req) {
     setup(JSON.parse(req.responseText));
     frame();
   });

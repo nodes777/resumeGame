@@ -5,6 +5,14 @@
   <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
   <title>Portfolio Platformer</title>
 
+  <script type="text/javascript">
+
+  if (screen.width <= 800) {
+    window.location = "http://taylornodell.com/mobileIndex.html";
+  }
+
+</script>
+
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -28,14 +36,33 @@
 <body>
 
   <div id="" class="instructions">
-      <b>LEFT/RIGHT</b> arrows to move, <b>SPACE</b> to jump.
+      <p><b>LEFT/RIGHT</b> arrows to move</p>
+      <p><b>SPACE</b> to jump.</p>
   </div>
   <div id="platformer" class="row">
-    <div id="contact" class="contact fadeIn">
+    <div id="contact" class="contact fadeIn col-md-4">
       <h4>Taylor Nodell</h4>
       <p>taylor.nodell@gmail.com</p>
       <p>814-308-2529</p>
       <p><a href="https://github.com/nodes777">github:nodes777</a></p>
+    </div>
+    <div id="skills" class ="skills fadeIn col-sm-4">
+        <ul class="list">
+        <h4>Skills</h4>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>jQuery</li>
+          <li>Angular.js</li>
+          <li>Knockout.j</li>
+          <li>Bootstrap</li>
+          <li>Git</li>
+          <li>WordPress</li>
+          <li>Test Driven Development</li>
+        </ul>
+    </div>
+    <div id="mystery" class="mystery fadeIn col-md-4">
+      <p>I don't even know how you got over here. You must be looking at the source code</p>
     </div>
     <div id="pong" class ="pongplus fadeIn col-md-4">
         <a href="./pongplus/index.html"><img class = "grow" src="img/pong.JPG"></a>
@@ -59,19 +86,29 @@
         <p><a href="https://github.com/nodes777/shapingUpWithAngular">Source Code</a></p>
     </div>
     <div id="resume" class ="resume fadeIn col-sm-4">
-               <a href="http://nodes777.github.io/" target="_blank"><img class = "grow" src="img/resumesmall.JPG"></a>
-               <h4><a href="http://nodes777.github.io/" target="_blank">Resume</a></h4>
-               <p>Here's my resume, hosted on GitHub Pages</p>
-               <p>Frameworks: Bootstrap, jQuery, JSON, Google Maps API, GitHub Pages</p>
-            </div>
+        <a href="http://nodes777.github.io/" target="_blank"><img class = "grow" src="img/resumesmall.JPG"></a>
+        <h4><a href="http://nodes777.github.io/" target="_blank">Resume</a></h4>
+        <p>Here's my resume, hosted on GitHub Pages</p>
+        <p>Frameworks: Bootstrap, jQuery, JSON, Google Maps API, GitHub Pages</p>
+    </div>
+    <div id="harold" class ="harold fadeIn col-sm-4">
+        <a href="./haroldGame/index.html" target="_blank"><img class = "grow" src="img/harold.JPG"></a>
+        <h4><a href="./haroldGame/index.html" target="_blank">Harold Game</a></h4>
+        <p>I made a game about my fish Harold. After recording a popular song about him, I decided to further develop the mythology of him by making a game.</p>
+        <p>Frameworks: requestAnimationFrame, Object Oriented Programming, Collision Physics, HTML5 Canvas, JSON</p>
+    </div>
+    <div id="music" class ="music fadeIn col-sm-4">
+        <iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=4239554309/size=small/bgcol=ffffff/linkcol=0687f5/artwork=none/transparent=true/" seamless><a href="http://taylornodell.bandcamp.com/album/i-pet-a-dog">I Pet A Dog by Taylor Nodell</a></iframe>
+        <h4>Music</h4>
+        <p>Good jump! Here's some music I made</p>
+        </div>
     <canvas id="canvas">
       <div class="unsupported">
-        Sorry, this example cannot be run because your browser does not support the &lt;canvas&gt; element
+        <p>Sorry, this example cannot be run because your browser does not support the &lt;canvas&gt; element</p>
+        <p>Please visit <a href="./mobile/index.html">my supported site instead</a></p>
       </div>
     </canvas>
-
-   
-
+    
   </div>
 
   <script src="fpsmeter.min.js"></script>

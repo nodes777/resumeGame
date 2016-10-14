@@ -8,7 +8,6 @@ A way to show my portfolio in a unique way
 TO DOs
 ==================
 * Implement mobile version
-* Add music content
 * contact to appear and stay?
 * skills to appear and stay?
 * minify

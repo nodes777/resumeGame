@@ -49,6 +49,41 @@
     text-align: center;
 }
 
+.harold{
+    margin-left: 2em;
+    color: white;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+}
+.music{
+    margin-left: 2em;
+    color: white;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+}
+
+.skills{
+    margin-left: 2em;
+    color: white;
+    position: absolute;
+    z-index: 1;
+    position: absolute;
+    text-align: center;
+
+}
+.mystery{
+    margin-left: 2em;
+    color: white;
+    position: absolute;
+    z-index: 1;
+    position: absolute;
+    text-align: center;
+}
+ul.list li {
+    list-style-type: none;
+}
 .fadeIn{
     display: none;
 	-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
