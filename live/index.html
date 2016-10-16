@@ -1,1 +1,113 @@
-<!DOCTYPE html><html><head> <meta http-equiv="X-UA-Compatible" content="IE=edge"/> <meta http-equiv="Content-type" content="text/html; charset=utf-8"/> <title>Portfolio Platformer</title><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><link rel="stylesheet" type="text/css" href="css/original.css"><link rel="stylesheet" type="text/css" href="css/styles.css"><link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet"><script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script><script>WebFont.load({google:{families: ['Titillium Web', 'Sans Serif']}});</script></head><body> <div id="" class="instructions"> <p><b>LEFT/RIGHT</b> arrows to move</p><p><b>SPACE</b> to jump.</p></div><div id="platformer" class="row"> <div id="contact" class="contact fadeIn col-md-4"> <h4>Taylor Nodell</h4> <p>taylor.nodell@gmail.com</p><p>814-308-2529</p><p><a href="https://github.com/nodes777">github:nodes777</a></p></div><div id="skills" class="skills fadeIn col-sm-4"> <ul class="list"> <h4>Skills</h4> <li>HTML</li><li>CSS</li><li>JavaScript</li><li>jQuery</li><li>Angular.js</li><li>Knockout.j</li><li>Bootstrap</li><li>Git</li><li>WordPress</li><li>Test Driven Development</li></ul> </div><div id="mystery" class="mystery fadeIn col-md-4"> <p>I don't even know how you got over here. You must be looking at the source code</p></div><div id="pong" class="pongplus fadeIn col-md-4"> <a href="./pongplus/index.html"><img class="grow" src="img/pong.JPG"></a> <h4><a href="./pongplus/index.html">Pong Plus</a></h4> <p>A pong clone made with HTML5's Canvas. I use the prototypical method of object construction and my own MV* method to update the scores. You can read about my process <a href="http://tayloredtotaylor.blogspot.com/2016/04/i-made-pong-clone.html">here</a>.</p><p>Frameworks: Bootstrap, jQuery, MVC, Prototypical Object Construction, </p><p><a href="https://github.com/nodes777/pongplus">Source Code</a></p></div><div id="mapventure" class="mapventure fadeIn col-sm-4"> <a href="./mapventure/index.html"><img class="grow" src="img/mapVenturesmall.JPG"></a> <h4><a href="./mapventure/index.html">Mapventure</a></h4> <p>Based on a Udacity project, I expanded upon my original work to make it more like a game. The player has a "choose your own adventure" style map. Choices are based on a typical day off in Port Douglas, where I spent several months working.</p><p>Frameworks: Bootstrap, jQuery, knockout.js, Google Maps API, Open Weather API</p><p><a href="https://github.com/nodes777/mapventure">Source Code</a></p></div><div id="angular" class=" angular fadeIn col-sm-4"> <a href="./bookstore/index.html"><img class="grow" src="img/bookstoresmall.JPG"></a> <h4><a href="./bookstore/index.html">Angular Bookstore</a></h4> <p>My first entry into the world of Angular. This is a book "store", showcasing a few of my favorite books. I give my take on why the book is one of my favorites and then I pull data from Google Books to provide a description, specs and images. </p><p>Frameworks: Angular.js, Google Books API, JSON, Bootstrap</p><p><a href="https://github.com/nodes777/shapingUpWithAngular">Source Code</a></p></div><div id="resume" class="resume fadeIn col-sm-4"> <a href="http://nodes777.github.io/" target="_blank"><img class="grow" src="img/resumesmall.JPG"></a> <h4><a href="http://nodes777.github.io/" target="_blank">Resume</a></h4> <p>Here's my resume, hosted on GitHub Pages</p><p>Frameworks: Bootstrap, jQuery, JSON, Google Maps API, GitHub Pages</p></div><div id="harold" class="harold fadeIn col-sm-4"> <a href="./haroldGame/index.html" target="_blank"><img class="grow" src="img/harold.JPG"></a> <h4><a href="./haroldGame/index.html" target="_blank">Harold Game</a></h4> <p>I made a game about my fish Harold. After recording a popular song about him, I decided to further develop the mythology of him by making a game.</p><p>Frameworks: requestAnimationFrame, Object Oriented Programming, Collision Physics, HTML5 Canvas, JSON</p></div><div id="music" class="music fadeIn col-sm-4"> <iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=4239554309/size=small/bgcol=ffffff/linkcol=0687f5/artwork=none/transparent=true/" seamless><a href="http://taylornodell.bandcamp.com/album/i-pet-a-dog">I Pet A Dog by Taylor Nodell</a></iframe> <h4>Music</h4> <p>Good jump! Here's some music I made</p></div><canvas id="canvas"> <div class="unsupported"> <p>Sorry, this example cannot be run because your browser does not support the &lt;canvas&gt; element</p><p>Please visit <a href="./mobile/index.html">my supported site instead</a></p></div></canvas> </div><script src="fpsmeter.min.js"></script> <script src="platformer.js"></script></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title>Portfolio Platformer</title>
+
+  <script type="text/javascript">
+</script>
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="css/original.css">
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Titillium Web', 'Sans Serif']
+    }
+  });
+</script>
+</head>
+
+<body>
+
+  <div id="" class="instructions">
+      <p><b>LEFT/RIGHT</b> arrows to move</p>
+      <p><b>SPACE</b> to jump.</p>
+  </div>
+  <div id="platformer" class="row">
+    <div id="contact" class="contact fadeIn col-md-4">
+      <h4>Taylor Nodell</h4>
+      <p>taylor.nodell@gmail.com</p>
+      <p>814-308-2529</p>
+      <p><a href="https://github.com/nodes777">github:nodes777</a></p>
+    </div>
+    <div id="skills" class ="skills fadeIn col-sm-4">
+        <ul class="list">
+        <h4>Skills</h4>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>jQuery</li>
+          <li>Angular.js</li>
+          <li>Knockout.j</li>
+          <li>Bootstrap</li>
+          <li>Git</li>
+          <li>WordPress</li>
+          <li>Test Driven Development</li>
+        </ul>
+    </div>
+    <div id="mystery" class="mystery fadeIn col-md-4">
+      <p></p>
+    </div>
+    <div id="pong" class ="pongplus fadeIn col-sm-4">
+        <a href="./pongplus/index.html"><img class = "grow" src="img/pong.JPG"></a>
+        <h4><a href="./pongplus/index.html">Pong Plus</a></h4>
+        <p>A pong clone made with HTML5's Canvas. I use the prototypical method of object construction and my own MV* method to update the scores. You can read about my process <a href="http://tayloredtotaylor.blogspot.com/2016/04/i-made-pong-clone.html">here</a>.</p>
+        <p>Frameworks: Bootstrap, jQuery, MVC, Prototypical Object Construction, </p>
+        <p><a href="https://github.com/nodes777/pongplus">Source Code</a></p>
+      </div>
+    <div id="mapventure" class="mapventure fadeIn col-sm-4">
+        <a href="./mapventure/index.html"><img class = "grow" src="img/mapVenturesmall.JPG"></a>
+        <h4><a href="./mapventure/index.html">Mapventure</a></h4>
+        <p>Based on a Udacity project, I expanded upon my original work to make it more like a game. The player has a "choose your own adventure" style map. Choices are based on a typical day off in Port Douglas, where I spent several months working.</p>
+        <p>Frameworks: Bootstrap, jQuery, knockout.js, Google Maps API, Open Weather API</p>
+        <p><a href="https://github.com/nodes777/mapventure">Source Code</a></p>
+    </div>
+    <div id="angular" class =" angular fadeIn col-sm-4">
+        <a href="./bookstore/index.html"><img class = "grow" src="img/bookstoresmall.JPG"></a>
+        <h4><a href="./bookstore/index.html">Angular Bookstore</a></h4>
+        <p>My first entry into the world of Angular. This is a book "store", showcasing a few of my favorite books. I give my take on why the book is one of my favorites and then I pull data from Google Books to provide a description, specs and images. </p>
+        <p>Frameworks: Angular.js, Google Books API, JSON, Bootstrap</p>
+        <p><a href="https://github.com/nodes777/shapingUpWithAngular">Source Code</a></p>
+    </div>
+    <div id="resume" class ="resume fadeIn col-sm-4">
+        <a href="http://nodes777.github.io/" target="_blank"><img class = "grow" src="img/resumesmall.JPG"></a>
+        <h4><a href="http://nodes777.github.io/" target="_blank">Resume</a></h4>
+        <p>Here's my resume, hosted on GitHub Pages</p>
+        <p>Frameworks: Bootstrap, jQuery, JSON, Google Maps API, GitHub Pages</p>
+    </div>
+    <div id="harold" class ="harold fadeIn col-sm-4">
+        <a href="./haroldGame/index.html" target="_blank"><img class = "grow" src="img/harold.JPG"></a>
+        <h4><a href="./haroldGame/index.html" target="_blank">Harold Game</a></h4>
+        <p>I made a game about my fish Harold. After recording a popular song about him, I decided to further develop the mythology of him by making a game.</p>
+        <p>Frameworks: requestAnimationFrame, Object Oriented Programming, Collision Physics, HTML5 Canvas, JSON</p>
+    </div>
+    <div id="music" class ="music fadeIn col-sm-4">
+        <iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=4239554309/size=small/bgcol=ffffff/linkcol=0687f5/artwork=none/transparent=true/" seamless><a href="http://taylornodell.bandcamp.com/album/i-pet-a-dog">I Pet A Dog by Taylor Nodell</a></iframe>
+        <h4>Music</h4>
+        <p>Good jump! Here's some music I made</p>
+        </div>
+    <canvas id="canvas">
+      <div class="unsupported">
+        <p>Sorry, this example cannot be run because your browser does not support the &lt;canvas&gt; element</p>
+        <p>Please visit <a href="./mobile/index.html">my supported site instead</a></p>
+      </div>
+    </canvas>
+    
+  </div>
+
+  <script src="fpsmeter.min.js"></script>
+  <script src="platformer.js"></script>
+
+</body>
+</html>

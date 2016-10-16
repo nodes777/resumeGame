@@ -4,11 +4,11 @@ Platformer Portfolio
 A way to show my portfolio in a unique way
 
  * Based on the physics engine for made in this [original article](http://codeincomplete.com/posts/2013/5/27/tiny_platformer/), view the [source](https://github.com/jakesgordon/javascript-tiny-platformer)
+ * I used the [Tiled Map Editor](http://www.mapeditor.org/) to build the stage
 
 TO DOs
 ==================
-* Make everything clickable
-* Implement mobile version
+* Scale pixels for different sizes
 * contact to appear and stay?
 * skills to appear and stay?
 * minify
