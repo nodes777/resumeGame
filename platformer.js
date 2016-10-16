@@ -86,8 +86,7 @@
           y = event.pageY - top;
       coords.x = x;
       coords.y = y;
-      var lastClicked = 0;
-      //console.log("platforms x: "+platforms[2].x+" "+"platforms y:"+platforms[2].y)
+      var lastClicked = 4;
       console.log("coords x: "+coords.x+" "+"coords y:"+coords.y)
       for(var i = 0; i<platforms.length; i++) {
             if (coords.y > platforms[i].clickY && coords.y < platforms[i].clickY + platforms[i].clickHeight && coords.x > platforms[i].clickX && coords.x < platforms[i].clickX + platforms[i].clickWidth) {
@@ -209,7 +208,6 @@
           $("#"+platforms[n].id).fadeIn("slow");
       } if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height)&& platforms[n].clicked == false) {
         $("#"+platforms[n].id).fadeOut("slow");
-        console.log('x')
       } if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height)&&platforms[n].clicked == true){
        $("#"+platforms[n].id).fadeIn("slow");
       }
