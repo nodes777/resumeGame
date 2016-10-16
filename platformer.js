@@ -76,7 +76,31 @@
       cell     = function(x,y)   { return tcell(p2t(x),p2t(y));    },
       tcell    = function(tx,ty) { return cells[tx + (ty*MAP.tw)]; };
 
-
+  var coords = {};
+// Add event listener for `click` events.
+  canvas.addEventListener('click', function(event) {
+      var offsets = $('#canvas').offset();
+      var top = offsets.top;
+      var left = offsets.left;
+      var x = event.pageX - left,
+          y = event.pageY - top;
+      coords.x = x;
+      coords.y = y;
+      var lastClicked = 0;
+      //console.log("platforms x: "+platforms[2].x+" "+"platforms y:"+platforms[2].y)
+      console.log("coords x: "+coords.x+" "+"coords y:"+coords.y)
+      for(var i = 0; i<platforms.length; i++) {
+            if (coords.y > platforms[i].clickY && coords.y < platforms[i].clickY + platforms[i].clickHeight && coords.x > platforms[i].clickX && coords.x < platforms[i].clickX + platforms[i].clickWidth) {
+                 $("#"+platforms[i].id).fadeIn("slow");
+                 platforms[i].clicked = true;
+                 platforms[lastClicked].clicked = false;
+                 lastClicked = i;
+                } else {
+                  $("#"+platforms[i].id).fadeOut("slow");
+                  platforms[i].clicked = false;
+                }
+        };
+  });
   //-------------------------------------------------------------------------
   // UPDATE LOOP
   //-------------------------------------------------------------------------
@@ -182,9 +206,12 @@
 
     for(n = 0; n<platforms.length; n++){
       if (overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height)){
-        $("#"+platforms[n].id).fadeIn("slow");
-      } else {
+          $("#"+platforms[n].id).fadeIn("slow");
+      } if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height)&& platforms[n].clicked == false) {
         $("#"+platforms[n].id).fadeOut("slow");
+        console.log('x')
+      } if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height)&&platforms[n].clicked == true){
+       $("#"+platforms[n].id).fadeIn("slow");
       }
     }
 
@@ -224,7 +251,7 @@
     for(n = 0; n<plats.length; n++){
       ctx.font="40px Titillium Web";
       ctx.fillStyle = COLOR.YELLOW;
-      ctx.fillText(plats[n].display, plats[n].start.x, plats[n].start.y+plats[n].height-20);
+      ctx.fillText(plats[n].display, plats[n].start.x, plats[n].start.y+plats[n].height-20 );
     }
   }
   //-------------------------------------------------------------------------
@@ -247,6 +274,13 @@
     }
 
     cells = data;
+    /*Scale the x, y and width and height of the platforms*/
+    for(var j = 0; j<platforms.length; j++){
+      platforms[j].clickX = platforms[j].x/(2048/768);
+      platforms[j].clickY = platforms[j].y/(1536/576);
+      platforms[j].clickWidth = platforms[j].width/(1536/576);
+      platforms[j].clickHeight = platforms[j].height/(1536/576);
+    }
     console.log(platforms);
   }
 
@@ -255,6 +289,7 @@
     entity.name     = obj.name.charAt(0).toUpperCase() + obj.name.slice(1);
     entity.display  = obj.properties.display;
     entity.id       = obj.properties.id;
+    entity.clicked  = false;
     entity.x        = obj.x;
     entity.y        = obj.y;
     entity.width    = obj.width;

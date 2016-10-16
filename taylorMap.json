@@ -101,11 +101,11 @@
                 {
                  "height":196,
                  "id":8,
-                 "name":"Mapventure",
+                 "name":"Resume",
                  "properties":
                     {
-                     "display":"API Calls",
-                     "id":"mapventure"
+                     "display":"Resume",
+                     "id":"resume"
                     },
                  "propertytypes":
                     {
@@ -120,7 +120,7 @@
                  "y":1124
                 }, 
                 {
-                 "height":124.242424242424,
+                 "height":124.242,
                  "id":10,
                  "name":"???",
                  "properties":
@@ -138,10 +138,10 @@
                  "visible":true,
                  "width":56.94,
                  "x":68.61,
-                 "y":130.30303030303
+                 "y":130.303
                 }, 
                 {
-                 "height":109.090909090909,
+                 "height":109.091,
                  "id":11,
                  "name":"Music",
                  "properties":
@@ -157,18 +157,18 @@
                  "rotation":0,
                  "type":"platform",
                  "visible":true,
-                 "width":93.9393939393939,
-                 "x":733.333333333333,
-                 "y":475.757575757576
+                 "width":93.9394,
+                 "x":733.333,
+                 "y":475.758
                 }, 
                 {
                  "height":200,
                  "id":15,
-                 "name":"Resume",
+                 "name":"Mapventure",
                  "properties":
                     {
-                     "display":"Resume",
-                     "id":"resume"
+                     "display":"API Calls",
+                     "id":"mapventure"
                     },
                  "propertytypes":
                     {
@@ -178,12 +178,12 @@
                  "rotation":0,
                  "type":"platform",
                  "visible":true,
-                 "width":257.575757575758,
-                 "x":1730.30303030303,
-                 "y":30.3030303030303
+                 "width":257.576,
+                 "x":1730.3,
+                 "y":30.303
                 }, 
                 {
-                 "height":197.333333333333,
+                 "height":197.333,
                  "id":19,
                  "name":"Skills",
                  "properties":
@@ -204,7 +204,7 @@
                  "y":1088
                 }, 
                 {
-                 "height":221.333333333333,
+                 "height":221.333,
                  "id":21,
                  "name":"Vanilla JavaScript",
                  "properties":
@@ -220,9 +220,9 @@
                  "rotation":0,
                  "type":"platform",
                  "visible":true,
-                 "width":254.666666666667,
+                 "width":254.667,
                  "x":1088,
-                 "y":1.33333333333333
+                 "y":1.33333
                 }],
          "opacity":1,
          "type":"objectgroup",

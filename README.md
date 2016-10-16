@@ -7,6 +7,7 @@ A way to show my portfolio in a unique way
 
 TO DOs
 ==================
+* Make everything clickable
 * Implement mobile version
 * contact to appear and stay?
 * skills to appear and stay?

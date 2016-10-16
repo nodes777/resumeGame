@@ -79,10 +79,10 @@
     <property name="id" value="angular"/>
    </properties>
   </object>
-  <object id="8" name="Mapventure" type="platform" x="1696" y="1124" width="220" height="196">
+  <object id="8" name="Resume" type="platform" x="1696" y="1124" width="220" height="196">
    <properties>
-    <property name="display" value="API Calls"/>
-    <property name="id" value="mapventure"/>
+    <property name="display" value="Resume"/>
+    <property name="id" value="resume"/>
    </properties>
   </object>
   <object id="10" name="???" type="platform" x="68.61" y="130.303" width="56.94" height="124.242">
@@ -97,10 +97,10 @@
     <property name="id" value="music"/>
    </properties>
   </object>
-  <object id="15" name="Resume" type="platform" x="1730.3" y="30.303" width="257.576" height="200">
+  <object id="15" name="Mapventure" type="platform" x="1730.3" y="30.303" width="257.576" height="200">
    <properties>
-    <property name="display" value="Resume"/>
-    <property name="id" value="resume"/>
+    <property name="display" value="API Calls"/>
+    <property name="id" value="mapventure"/>
    </properties>
   </object>
   <object id="19" name="Skills" type="platform" x="480.33" y="1088" width="223.67" height="197.333">
