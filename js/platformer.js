@@ -317,8 +317,8 @@
       platforms[j].clickY = platforms[j].y/(1536/576);
       platforms[j].clickWidth = platforms[j].width/(1536/576);
       platforms[j].clickHeight = platforms[j].height/(1536/576);*/
+      console.log(platforms[j].clickX);
     }
-    console.log(platforms);
   }
 
   function setupEntity(obj) {
