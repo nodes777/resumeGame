@@ -56,8 +56,8 @@
       ACCEL    = 1/2,     // default take 1/2 second to reach maxdx (horizontal acceleration)
       FRICTION = 1/6,     // default take 1/6 second to stop from maxdx (horizontal friction)
       IMPULSE  = 1500,    // default player jump impulse
-      COLOR    = { BLACK: '#000000', YELLOW: '#fffd98', GREEN: '#40a000', LIGHTGREEN: '#80e000', BROWN: '#c06000', DARKBROWN: '#602000', BLUE: '#0006FF', GOLD: 'gold' },
-      COLORS   = [ COLOR.YELLOW, COLOR.GREEN, COLOR.LIGHTGREEN, COLOR.BROWN, COLOR.DARKBROWN ],
+      COLOR    = { BLACK: '#111111', YELLOW: '#fffd98', GREEN: '#40a000', LIGHTGREEN: '#80e000', BROWN: '#c06000', DARKBROWN: '#602000', BLUE: '#0006FF', GOLD: 'gold' },
+      COLORS   = [ COLOR.YELLOW, COLOR.GREEN, COLOR.BLACK, COLOR.BROWN, COLOR.DARKBROWN ],
       KEY      = { SPACE: 32, LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40 };
 
   var fps      = 60,
@@ -206,6 +206,11 @@
     for(n = 0; n<platforms.length; n++){
       if (overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height)){
           $("#"+platforms[n].id).fadeIn("slow");
+          if(n == 4){
+            /*If you stand on the ??? platform*/
+            spawnCircles();
+            console.log("hit");
+          }
       } if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height)&& platforms[n].clicked == false) {
         $("#"+platforms[n].id).fadeOut("slow");
       } if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height)&&platforms[n].clicked == true){
@@ -257,7 +262,7 @@
   //-------------------------------------------------------------------------
   var w = window.innerWidth;
   var h = window.innerHeight;
-  console.log(w,h);
+  console.log("screen width: "+w+" screen height: "+h);
   function setup(map) {
     var data    = map.layers[0].data,
         objects = map.layers[1].objects,
@@ -280,32 +285,35 @@
     var lgRatio = (2048/896);
     var xlRatio = (2048/1024);
     for(var j = 0; j<platforms.length; j++){
+      if (j === 4) {
+        /*skip the ??? platform, I don't want people to be able to click it*/
+          platforms[j].clickX = null;
+          platforms[j].clickY = null;
+          platforms[j].clickWidth = null;
+          platforms[j].clickHeight = null;
+        continue;
+      }
     	if(w<=839||h<=529 ){
-    		console.log("xs");
     		platforms[j].clickX = platforms[j].x/xsRatio;
       		platforms[j].clickY = platforms[j].y/xsRatio;
       		platforms[j].clickWidth = platforms[j].width/xsRatio;
       		platforms[j].clickHeight = platforms[j].height/xsRatio;
     	} else if (w<=967||h<=625){
-    		console.log("sm");
     		platforms[j].clickX = platforms[j].x/smRatio;
       		platforms[j].clickY = platforms[j].y/smRatio;
       		platforms[j].clickWidth = platforms[j].width/smRatio;
       		platforms[j].clickHeight = platforms[j].height/smRatio;
     	} else if (w<=1095||h<=721){
-    		console.log("md: 1095 ");
     		platforms[j].clickX = platforms[j].x/mdRatio;
       		platforms[j].clickY = platforms[j].y/mdRatio;
       		platforms[j].clickWidth = platforms[j].width/mdRatio;
       		platforms[j].clickHeight = platforms[j].height/mdRatio;
     	} else if(w<=1223||h<=817){
-    		console.log("lg");
 			platforms[j].clickX = platforms[j].x/lgRatio;
       		platforms[j].clickY = platforms[j].y/lgRatio;
       		platforms[j].clickWidth = platforms[j].width/lgRatio;
       		platforms[j].clickHeight = platforms[j].height/lgRatio;
     	} else if(w>1223||h>817){
-    		console.log("xl");
     		platforms[j].clickX = platforms[j].x/xlRatio;
       		platforms[j].clickY = platforms[j].y/xlRatio;
       		platforms[j].clickWidth = platforms[j].width/xlRatio;
@@ -317,7 +325,6 @@
       platforms[j].clickY = platforms[j].y/(1536/576);
       platforms[j].clickWidth = platforms[j].width/(1536/576);
       platforms[j].clickHeight = platforms[j].height/(1536/576);*/
-      console.log(platforms[j].clickX);
     }
   }
 
