@@ -8,10 +8,8 @@ A unique way to show off my portfolio.
 
 TO DOs
 ==================
-* make hidden block to get to ????
 * contact to appear and stay?
 * skills to appear and stay?
-* minify
 
 SUPPORTED BROWSERS
 ==================
