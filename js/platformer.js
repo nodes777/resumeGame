@@ -419,7 +419,7 @@
         entity.display = obj.properties.display;
         entity.id = obj.properties.id;
         entity.clicked = false;
-        entity.x = obj.x - 200;
+        entity.x = obj.x;
         entity.y = obj.y;
         entity.width = obj.width;
         entity.height = obj.height;
