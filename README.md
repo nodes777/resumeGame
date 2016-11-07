@@ -10,6 +10,7 @@ TO DOs
 ==================
 * contact to appear and stay?
 * skills to appear and stay?
+* add live clients?
 
 SUPPORTED BROWSERS
 ==================

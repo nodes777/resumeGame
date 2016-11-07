@@ -3,29 +3,28 @@
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <meta name ="viewport" content="width=device-width">
   <title>Taylor Nodell: Portfolio Platformer</title>
-
-  <script type="text/javascript">
-</script>
 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style type="text/css">
+  body            { background: #111; }
+    #platformer     { margin: 1em auto; position: relative; width: 512px; height: 384px; }
+    #canvas         { display: inline-block; width: 100%; height: 100%; }
+    #instructions   { font-style: italic; color: #999; font-size: 9pt; margin-left: 1em; margin-top: 0.5em; }
+    #instructions b { color: #DDD; }
+    @media screen and (min-width:     0px) and (min-height:    0px) { #platformer { width:  512px; height: 384px; font-size:  7pt; } } /* block = 16 */
+    @media screen and (min-width:   840px) and (min-height:  530px) { #platformer { width:  640px; height: 480px; font-size:  9pt; } } /* block = 20 */
+    @media screen and (min-width:   968px) and (min-height:  626px) { #platformer { width:  768px; height: 576px; font-size: 11pt; } } /* block = 24 */
+    @media screen and (min-width:  1096px) and (min-height:  722px) { #platformer { width:  896px; height: 672px; font-size: 13pt; } } /* block = 28 */
+    @media screen and (min-width:  1224px) and (min-height:  818px) { #platformer { width: 1024px; height: 768px; font-size: 15pt; } } /* block = 32 */
+</style>
 
-<link rel="stylesheet" type="text/css" href="css/original.css">
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 
 <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
 
-<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
-<script>
-  WebFont.load({
-    google: {
-      families: ['Titillium Web', 'Sans Serif']
-    }
-  });
-</script>
 </head>
 
 <body>
@@ -110,6 +109,16 @@
     </canvas>
   </div>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Titillium Web', 'Sans Serif']
+    }
+  });
+</script>
   <script src="js/fpsmeter.min.js"></script>
   <script src="js/platformer.js"></script>
 
