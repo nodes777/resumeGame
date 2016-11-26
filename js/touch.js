@@ -2,7 +2,9 @@ var touchFile = function(player){
 
   if (Modernizr.touchevents) {
     console.log('Touch events enabled');
-    console.log(player);
+
+    $(".instructions").hide();
+
      $('#touchIconUp').bind('touchstart', function(e) {
         e.preventDefault();
         player.jump = true;
@@ -36,7 +38,7 @@ var touchFile = function(player){
 
   } else {
     console.log('No touch capability detected');
-   // document.getElementById("touchIcon1").style.display = "none";
+   $(".touchies").hide();
 
   }
 }

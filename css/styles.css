@@ -90,9 +90,16 @@ ul.list li {
     list-style-type: none;
 }
 
-.touchIcons{
-    
+.touchies{
+    position: fixed;
+    margin: 10px;
 }
+
+.upArrow{
+    position: fixed;
+    right: 20px;
+}
+
 .fadeIn{
     display: none;
 	-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */

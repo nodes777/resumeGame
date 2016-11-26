@@ -484,7 +484,7 @@ var platformer = function() { // module pattern
     get("js/taylorMap.json", function(req) {
         setup(JSON.parse(req.responseText));
         frame();
-        console.log(player);
+        //pass in player data to the touch events file
         touchFile(player);
     });
 };
