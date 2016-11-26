@@ -90,11 +90,16 @@ ul.list li {
     list-style-type: none;
 }
 
-.touchies{
+.touchIcons{
     position: fixed;
+    z-index: 1;
     margin: 10px;
+    bottom: 10px;
 }
 
+.rightArrow{
+    left: 128px;
+}
 .upArrow{
     position: fixed;
     right: 20px;

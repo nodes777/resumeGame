@@ -3,7 +3,7 @@ Platformer Portfolio
 
 A unique way to show off my portfolio.
 
- * Based on the physics engine made in this [original article](http://codeincomplete.com/posts/2013/5/27/tiny_platformer/), view the [source](https://github.com/jakesgordon/javascript-tiny-platformer)
+ * Based on the game engine made in this [original article](http://codeincomplete.com/posts/2013/5/27/tiny_platformer/), view the [source](https://github.com/jakesgordon/javascript-tiny-platformer)
  * I used the [Tiled Map Editor](http://www.mapeditor.org/) to build the stage
 
 TO DOs
@@ -12,11 +12,20 @@ TO DOs
 * skills to appear and stay?
 * add live clients?
 
+ATTRIBUTIONS
+==================
+
+
+
+FRAMEWORKS AND LIBRARIES
+========================
+
+
+
 SUPPORTED BROWSERS
 ==================
 
 Should work in any modern browser with canvas support
-* SVG touch icons work everywhere except IE 8 and down and Android 2.3 and down
 
 DEVELOPMENT
 ===========
