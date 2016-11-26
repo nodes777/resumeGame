@@ -1,4 +1,4 @@
-(function() { // module pattern
+var platformer = function() { // module pattern
 
     //-------------------------------------------------------------------------
     // POLYFILLS
@@ -129,7 +129,9 @@
             }
         }
     });
-
+    //-------------------------------------------------------------------------
+    // Explosion on ???
+    //-------------------------------------------------------------------------.
     function Ball(x, y) {
         this.x = x;
         this.y = y;
@@ -342,7 +344,7 @@
     //-------------------------------------------------------------------------
     var w = window.innerWidth;
     var h = window.innerHeight;
-    console.log("screen width: " + w + " screen height: " + h);
+    //console.log("screen width: " + w + " screen height: " + h);
 
     function setup(map) {
         var data = map.layers[0].data,
@@ -478,8 +480,12 @@
         return onkey(ev, ev.keyCode, false);
     }, false);
 
+    /*AJAX call for map, when it's ready start the first frame*/
     get("js/taylorMap.json", function(req) {
         setup(JSON.parse(req.responseText));
         frame();
+        console.log(player);
+        touchFile(player);
     });
-})();
+};
+platformer();

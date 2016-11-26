@@ -16,6 +16,7 @@ SUPPORTED BROWSERS
 ==================
 
 Should work in any modern browser with canvas support
+* SVG touch icons work everywhere except IE 8 and down and Android 2.3 and down
 
 DEVELOPMENT
 ===========

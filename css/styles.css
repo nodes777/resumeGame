@@ -89,6 +89,10 @@
 ul.list li {
     list-style-type: none;
 }
+
+.touchIcons{
+    
+}
 .fadeIn{
     display: none;
 	-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
