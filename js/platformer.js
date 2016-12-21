@@ -344,7 +344,6 @@ var platformer = function() { // module pattern
     //-------------------------------------------------------------------------
     var w = window.innerWidth;
     var h = window.innerHeight;
-    //console.log("screen width: " + w + " screen height: " + h);
 
     function setup(map) {
         var data = map.layers[0].data,
@@ -380,6 +379,7 @@ var platformer = function() { // module pattern
                 platforms[j].clickHeight = null;
                 continue;
             }
+            /*Set the clicking zone based on screen size*/
             if (w <= 839 || h <= 529) {
                 platforms[j].clickX = platforms[j].x / xsRatio;
                 platforms[j].clickY = platforms[j].y / xsRatio;
@@ -408,10 +408,7 @@ var platformer = function() { // module pattern
             } else {
 
             }
-            /*platforms[j].clickX = platforms[j].x/(2048/768);
-            platforms[j].clickY = platforms[j].y/(1536/576);
-            platforms[j].clickWidth = platforms[j].width/(1536/576);
-            platforms[j].clickHeight = platforms[j].height/(1536/576);*/
+
         }
     }
 
@@ -489,3 +486,4 @@ var platformer = function() { // module pattern
     });
 };
 platformer();
+console.log("Hmmm, maybe try changing the background color to pink");
