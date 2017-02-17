@@ -104,9 +104,9 @@ var platformer = function() { // module pattern
     var balls = [];
 
     var coords = {};
-    var offsets = $('#canvas').offset();
-    var top = offsets.top;
-    var left = offsets.left;
+    var rect = document.getElementById("canvas").getBoundingClientRect();
+    var top = rect.top + document.body.scrollTop;
+    var left = rect.left + document.body.scrollLeft;
 
     var platformDOs = []
 
@@ -197,6 +197,7 @@ var platformer = function() { // module pattern
 
     function update(dt) {
         updatePlayer(dt);
+        checkPlatforms(player);
         updateBalls();
     }
 
@@ -285,7 +286,10 @@ var platformer = function() { // module pattern
 
         entity.falling = !(celldown || (nx && celldiag));
 
-        /*Fade in for overlap or click*/
+    }
+
+    function checkPlatforms(entity){
+         /*Fade in for overlap or click*/
         for (n = 0; n < platforms.length; n++) {
             if (overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height)) {
                 platformDOs[n].fadeIn("slow");
@@ -295,13 +299,12 @@ var platformer = function() { // module pattern
                 }
             }
             if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height) && platforms[n].clicked == false) {
-                $("#" + platforms[n].id).fadeOut("slow");
+                platformDOs[n].fadeOut("slow");
             }
             if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height) && platforms[n].clicked == true) {
-                $("#" + platforms[n].id).fadeIn("slow");
+                platformDOs[n].fadeIn("slow");
             }
         }
-
     }
 
     //-------------------------------------------------------------------------
