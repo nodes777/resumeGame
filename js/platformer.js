@@ -121,12 +121,12 @@ var platformer = function() { // module pattern
         var lastClicked = 4;
         for (var i = 0; i < platforms.length; i++) {
             if (coords.y > platforms[i].clickY && coords.y < platforms[i].clickY + platforms[i].clickHeight && coords.x > platforms[i].clickX && coords.x < platforms[i].clickX + platforms[i].clickWidth) {
-                $("#" + platforms[i].id).fadeIn("slow");
+                platformDOs[i].fadeIn("slow");
                 platforms[i].clicked = true;
                 platforms[lastClicked].clicked = false;
                 lastClicked = i;
             } else {
-                $("#" + platforms[i].id).fadeOut("slow");
+                platformDOs[i].fadeOut("slow");
                 platforms[i].clicked = false;
             }
         }
