@@ -37,7 +37,7 @@ var touchFile = function(player){
     });
 
   } else {
-    console.log('No touch capability detected');
+    //console.log('No touch capability detected');
    $(".touchies").hide();
 
   }

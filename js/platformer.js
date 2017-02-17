@@ -108,6 +108,8 @@ var platformer = function() { // module pattern
     var top = offsets.top;
     var left = offsets.left;
 
+    var platformDOs = []
+
     //-------------------------------------------------------------------------
     // TAYLOR FUNCs
     //-------------------------------------------------------------------------.
@@ -286,7 +288,7 @@ var platformer = function() { // module pattern
         /*Fade in for overlap or click*/
         for (n = 0; n < platforms.length; n++) {
             if (overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height)) {
-                $("#" + platforms[n].id).fadeIn("slow");
+                platformDOs[n].fadeIn("slow");
                 if (n == 4) {
                     /*If you stand on the ??? platform*/
                     spawnBalls();
@@ -362,6 +364,11 @@ var platformer = function() { // module pattern
                     break;
             }
         }
+        //get the DOM objs to be accessed by jQuery fadeIn later
+        for (var n = 0; n < platforms.length; n++) {
+            platformDOs.push($("#" + platforms[n].id));
+        }
+        console.log(platformDOs);
 
         cells = data;
         /*Scale the x, y and width and height of the platforms for clicking X and Y*/
@@ -486,4 +493,4 @@ var platformer = function() { // module pattern
     });
 };
 platformer();
-console.log("Hmmm, maybe try changing the background color to pink");
+console.log("Hmmm, maybe try changing the background color to gray \n");
