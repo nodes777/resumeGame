@@ -1,7 +1,14 @@
 *{
     font-family: 'Titillium Web', sans-serif;
 }
-
+.canvasLower{
+    z-index: 0;
+    position: absolute;
+}
+.canvasUpper{
+    z-index: 2;
+    position: absolute;
+}
 .taylor{
     font-family: 'Titillium Web', sans-serif;
     color: white;

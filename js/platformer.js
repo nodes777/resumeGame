@@ -108,13 +108,6 @@ var platformer = function() { // module pattern
     var top = rect.top + document.body.scrollTop;
     var left = rect.left + document.body.scrollLeft;
 
-    //Cached map vars
-    var osCanvas = document.createElement("canvas"); // creates a new off-screen canvas element
-    var osContext = osCanvas.getContext("2d"); //the drawing context of the off-screen canvas element
-    osCanvas.width = canvas.width; // match the off-screen canvas dimensions with that of #mainCanvas
-    osCanvas.height = canvas.height;
-    var mapRendered = false;
-
     var platformDOs = [];
 
     //-------------------------------------------------------------------------
@@ -320,7 +313,7 @@ var platformer = function() { // module pattern
 
     function render(ctx, frame, dt) {
         ctx.clearRect(0, 0, width, height);
-        renderMap(ctx);
+        //renderMap(ctx);
         renderHeadlines(platforms);
         renderPlayer(ctx, dt);
         renderBalls();
@@ -353,17 +346,15 @@ var platformer = function() { // module pattern
     }
 
     function drawMapOnce(){
-    if( mapRendered === false ){ // create and save the map image
-        mapCache = document.createElement('canvas');
+     // create and save the map image
+        mapCache = document.getElementById('canvas2');
         cachedContext = mapCache.getContext("2d");
         mapCache.width = canvas.width;
         mapCache.height = canvas.height;
         renderMap(cachedContext);
         renderHeadlines(cachedContext);
-    }
-
-    ctx.drawImage( mapCache, 0, 0 );
-    mapRendered = true;
+        ctx.drawImage( mapCache, 0, 0 );
+    //mapRendered = true;
 }
     //-------------------------------------------------------------------------
     // LOAD THE MAP
@@ -389,7 +380,7 @@ var platformer = function() { // module pattern
             }
         }
         //get the DOM objs to be accessed by jQuery fadeIn later
-        for (var n = 0; n < platforms.length; n++) {
+        for ( n = 0; n < platforms.length; n++) {
             platformDOs.push($("#" + platforms[n].id));
         }
         console.log(platformDOs);
@@ -498,7 +489,7 @@ var platformer = function() { // module pattern
         last = now;
         counter++;
         //fpsmeter.tick();
-        requestAnimationFrame(frame, canvas);
+        requestAnimationFrame(frame);
     }
 
     document.addEventListener('keydown', function(ev) {
@@ -511,8 +502,8 @@ var platformer = function() { // module pattern
     /*AJAX call for map, when it's ready start the first frame*/
     get("js/taylorMap.json", function(req) {
         setup(JSON.parse(req.responseText));
-        frame();
         drawMapOnce();
+        frame();
         //pass in player data to the touch events file
         touchFile(player);
     });
