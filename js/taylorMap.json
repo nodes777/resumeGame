@@ -32,8 +32,8 @@
                  "type":"player",
                  "visible":true,
                  "width":22,
-                 "x":290.757575757576,
-                 "y":47.2727272727273
+                 "x":290.758,
+                 "y":47.2727
                 }, 
                 {
                  "height":195.152,
@@ -101,11 +101,11 @@
                 {
                  "height":196,
                  "id":8,
-                 "name":"Resume",
+                 "name":"Node.js",
                  "properties":
                     {
-                     "display":"Resume",
-                     "id":"resume"
+                     "display":"Node.js",
+                     "id":"nodejs"
                     },
                  "propertytypes":
                     {
@@ -222,7 +222,7 @@
                  "visible":true,
                  "width":254.667,
                  "x":1088,
-                 "y":37.33333
+                 "y":37.3333
                 }],
          "opacity":1,
          "type":"objectgroup",

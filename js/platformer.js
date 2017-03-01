@@ -108,7 +108,14 @@ var platformer = function() { // module pattern
     var top = rect.top + document.body.scrollTop;
     var left = rect.left + document.body.scrollLeft;
 
-    var platformDOs = []
+    //Cached map vars
+    var osCanvas = document.createElement("canvas"); // creates a new off-screen canvas element
+    var osContext = osCanvas.getContext("2d"); //the drawing context of the off-screen canvas element
+    osCanvas.width = canvas.width; // match the off-screen canvas dimensions with that of #mainCanvas
+    osCanvas.height = canvas.height;
+    var mapRendered = false;
+
+    var platformDOs = [];
 
     //-------------------------------------------------------------------------
     // TAYLOR FUNCs
@@ -298,10 +305,10 @@ var platformer = function() { // module pattern
                     spawnBalls();
                 }
             }
-            if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height) && platforms[n].clicked == false) {
+            if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height) && platforms[n].clicked === false) {
                 platformDOs[n].fadeOut("slow");
             }
-            if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height) && platforms[n].clicked == true) {
+            if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height) && platforms[n].clicked === true) {
                 platformDOs[n].fadeIn("slow");
             }
         }
@@ -344,6 +351,20 @@ var platformer = function() { // module pattern
             ctx.fillText(plats[n].display, plats[n].start.x, plats[n].start.y + plats[n].height - 20);
         }
     }
+
+    function drawMapOnce(){
+    if( mapRendered === false ){ // create and save the map image
+        mapCache = document.createElement('canvas');
+        cachedContext = mapCache.getContext("2d");
+        mapCache.width = canvas.width;
+        mapCache.height = canvas.height;
+        renderMap(cachedContext);
+        renderHeadlines(cachedContext);
+    }
+
+    ctx.drawImage( mapCache, 0, 0 );
+    mapRendered = true;
+}
     //-------------------------------------------------------------------------
     // LOAD THE MAP
     //-------------------------------------------------------------------------
@@ -457,16 +478,16 @@ var platformer = function() { // module pattern
     var counter = 0,
         dt = 0,
         now,
-        last = timestamp(),
-        fpsmeter = new FPSMeter({
+        last = timestamp();
+        /*fpsmeter = new FPSMeter({
             decimals: 0,
             graph: true,
             theme: 'dark',
             left: '5px'
         });
-
+        */
     function frame() {
-        fpsmeter.tickStart();
+        //fpsmeter.tickStart();
         now = timestamp();
         dt = dt + Math.min(1, (now - last) / 1000);
         while (dt > step) {
@@ -476,7 +497,7 @@ var platformer = function() { // module pattern
         render(ctx, counter, dt);
         last = now;
         counter++;
-        fpsmeter.tick();
+        //fpsmeter.tick();
         requestAnimationFrame(frame, canvas);
     }
 
@@ -491,6 +512,7 @@ var platformer = function() { // module pattern
     get("js/taylorMap.json", function(req) {
         setup(JSON.parse(req.responseText));
         frame();
+        drawMapOnce();
         //pass in player data to the touch events file
         touchFile(player);
     });

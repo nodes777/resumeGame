@@ -12,12 +12,11 @@ A unique way to show off my portfolio.
 
 TO DOs
 ==================
-* Mobile implementation is sloppy:
+* Mobile implementation:
   * When displaying fact div the new div obscures the view
-  * Controls feel sloppy
   * Camera could move?
 * Add live clients?
-* Add hint for ??? platform in the console
+* Refactor CSS
 
 ATTRIBUTIONS
 ==================
