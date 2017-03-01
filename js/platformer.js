@@ -367,7 +367,6 @@ var platformer = function() { // module pattern
         mapCache.width = canvas.width;
         mapCache.height = canvas.height;
         renderMap(cachedContext);
-        renderHeadlines(cachedContext);
         ctx.drawImage( mapCache, 0, 0 );
     //mapRendered = true;
 }

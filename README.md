@@ -1,7 +1,7 @@
 Platformer Portfolio
 ==========================
 
-A unique way to show off my portfolio.
+A unique way to show off my [Portfolio](http://taylornodell.com).
 
  * Based on the game engine made in this [original article](http://codeincomplete.com/posts/2013/5/27/tiny_platformer/), view the [source](https://github.com/jakesgordon/javascript-tiny-platformer)
  * I used the [Tiled Map Editor](http://www.mapeditor.org/) to build the stage
@@ -16,7 +16,6 @@ TO DOs
   * When displaying fact div the new div obscures the view
   * Camera could move?
 * Add live clients?
-* Refactor CSS
 
 ATTRIBUTIONS
 ==================
