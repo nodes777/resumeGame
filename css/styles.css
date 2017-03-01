@@ -1,7 +1,14 @@
 *{
     font-family: 'Titillium Web', sans-serif;
 }
-
+.canvasLower{
+    z-index: 0;
+    position: absolute;
+}
+.canvasUpper{
+    z-index: 2;
+    position: absolute;
+}
 .taylor{
     font-family: 'Titillium Web', sans-serif;
     color: white;
@@ -14,15 +21,8 @@
     position: absolute;
     z-index: 1;
 }
-.contact{
-    margin-left: 2em;
-	color: white;
-	position: absolute;
-	z-index: 1;
-	text-align: center;
-}
 
-.pongplus{
+.projectDisplay{
     margin-left: 2em;
     color: white;
     position: absolute;
@@ -30,82 +30,43 @@
     text-align: center;
 }
 
-.mapventure{
-    margin-left: 2em;
-    color: white;
-    position: absolute;
-    z-index: 1;
-    text-align: center;
-}
-
-.angular{
-    margin-left: 2em;
-    color: white;
-    position: absolute;
-    z-index: 1;
-    text-align: center;
-}
-
-.resume{
-    margin-left: 2em;
-    color: white;
-    position: absolute;
-    z-index: 1;
-    text-align: center;
-}
-
-.harold{
-    margin-left: 2em;
-    color: white;
-    position: absolute;
-    z-index: 1;
-    text-align: center;
-}
-.music{
-    margin-left: 2em;
-    color: white;
-    position: absolute;
-    z-index: 1;
-    text-align: center;
-}
-
-.skills{
-    margin-left: 2em;
-    color: white;
-    position: absolute;
-    z-index: 1;
-    position: absolute;
-    text-align: center;
-
-}
-.mystery{
-    margin-left: 2em;
-    color: white;
-    position: absolute;
-    z-index: 1;
-    position: absolute;
-    text-align: center;
+.hidden{
+    opacity: 0;
 }
 ul.list li {
     list-style-type: none;
 }
+
+.touchIcons{
+    position: fixed;
+    z-index: 1;
+    margin: 10px;
+    bottom: 10px;
+}
+
+.rightArrow{
+    left: 128px;
+}
+.upArrow{
+    position: fixed;
+    right: 20px;
+}
+
 .fadeIn{
-    display: none;
-	-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 2s; /* Firefox < 16 */
-        -ms-animation: fadein 2s; /* Internet Explorer */
-         -o-animation: fadein 2s; /* Opera < 12.1 */
-            animation: fadein 2s;
+	-webkit-animation: fadein 2s forwards; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s forwards; /* Firefox < 16 */
+        -ms-animation: fadein 2s forwards; /* Internet Explorer */
+         -o-animation: fadein 2s forwards; /* Opera < 12.1 */
+            animation: fadein 2s forwards;
 
 }
 
 .fadeOut{
-    display: block;
-    -webkit-animation: fadeOut 2s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadeOut 2s; /* Firefox < 16 */
-        -ms-animation: fadeOut 2s; /* Internet Explorer */
-         -o-animation: fadeOut 2s; /* Opera < 12.1 */
-            animation: fadeOut 2s;
+    -webkit-animation: fadeOut 2s forwards; /* Safari, Chrome and Opera > 12.1*/
+       -moz-animation: fadeOut 2s forwards; /* Firefox < 16 */
+        -ms-animation: fadeOut 2s forwards; /* Internet Explorer */
+         -o-animation: fadeOut 2s forwards; /* Opera < 12.1 */
+            animation: fadeOut 2s forwards;
 }
 
 @keyframes fadein {

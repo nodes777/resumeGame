@@ -1,0 +1,139 @@
+#Optimizing My Portfolio
+==========================
+
+Two Problems:
+* Repainting the map every frame - Cost 11ms
+* Fading in or out on every frame, because I was always applying a jQuery fadeIn or FadeOut whether or not I was on the platform - Cost 22ms
+
+
+##Map Repainting Fix
+==================
+* Added a second canvas in html
+
+```
+<canvas id="canvas" class="canvas canvasLower">
+      <div class="unsupported">
+        <p>Sorry, this game cannot be run because your browser does not support the &lt;canvas&gt; element</p>
+        <p>Please visit <a href="./mobile/index.html">my supported site instead</a></p>
+      </div>
+    </canvas>
+<canvas class="canvas upperCanvas" id="canvas2"></canvas>
+```
+
+* In the CSS, defined the canvases on top of eachother
+```CSS
+.canvasLower{
+    z-index: 0;
+    position: absolute;
+}
+.canvasUpper{
+    z-index: 2;
+    position: absolute;
+}
+```
+* Painted lower canvas once with the JSON data as the game loads
+
+```javascript
+function drawMapOnce(){
+     // create and save the map image
+        mapCache = document.getElementById('canvas2');
+        cachedContext = mapCache.getContext("2d");
+        mapCache.width = canvas.width;
+        mapCache.height = canvas.height;
+        renderMap(cachedContext);
+        //draw the image on the lower canvas
+        ctx.drawImage( mapCache, 0, 0 );
+}
+```
+
+* In the rendering in the game loop, clear and render for the character only
+
+** Renderheadlines could and should be in the drawMapOnce, not in this loop
+```javascript
+    function render(ctx, frame, dt) {
+        ctx.clearRect(0, 0, width, height);
+        //renderMap(ctx);
+        renderHeadlines(platforms);
+        renderPlayer(ctx, dt);
+        renderBalls();
+    }
+```
+### Fix Saves 11ms
+* Render is now only .84ms
+
+
+##Fading Fix
+==================
+
+* Checkplatforms in game loop, checks if player is on a platform
+* It also checks if they are not
+
+```javascript
+ function checkPlatforms(entity){
+         /*Fade in for overlap or click*/
+        for (n = 0; n < platforms.length; n++) {
+            if (overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height)) {
+                fadeInT(platformDOs[n]);
+                if (n == 4) {
+                    /*If you stand on the ??? platform*/
+                    spawnBalls();
+                }
+            }
+            if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height) && platforms[n].clicked === false) {
+               fadeOutT(platformDOs[n]);
+            }
+            if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height) && platforms[n].clicked === true) {
+                fadeInT(platformDOs[n]);
+            }
+        }
+    }
+```
+
+* FadeInT replaces the jQuery version, adding and removing CSS classes
+
+```javascript
+function fadeInT(el) {
+        if (el.classList.contains('hidden')||el.classList.contains('fadeOut')){
+            el.classList.remove('hidden');
+            el.classList.remove('fadeOut');
+            el.classList.add('fadeIn');
+        }
+    }
+
+```
+
+* FadeIn CSS, forwards forces class to maintain the style applied at the end of the animation
+** It keeps the fade outs from popping back into visibility
+```
+
+.fadeIn{
+	-webkit-animation: fadein 2s forwards; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s forwards; /* Firefox < 16 */
+        -ms-animation: fadein 2s forwards; /* Internet Explorer */
+         -o-animation: fadein 2s forwards; /* Opera < 12.1 */
+            animation: fadein 2s forwards;
+}
+
+.fadeOut{
+    -webkit-animation: fadeOut 2s forwards; /* Safari, Chrome and Opera > 12.1*/
+       -moz-animation: fadeOut 2s forwards; /* Firefox < 16 */
+        -ms-animation: fadeOut 2s forwards; /* Internet Explorer */
+         -o-animation: fadeOut 2s forwards; /* Opera < 12.1 */
+            animation: fadeOut 2s forwards;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+```
+
+### Fix Saves 21ms
+* checkPlatforms is now only .12ms
+
+
+#Conclusion
+===========
+* Don't redraw what you don't need to
+* Think critically about using jQuery
+* Animations with CSS are handy

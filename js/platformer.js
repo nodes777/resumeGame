@@ -1,4 +1,4 @@
-(function() { // module pattern
+var platformer = function() { // module pattern
 
     //-------------------------------------------------------------------------
     // POLYFILLS
@@ -104,9 +104,11 @@
     var balls = [];
 
     var coords = {};
-    var offsets = $('#canvas').offset();
-    var top = offsets.top;
-    var left = offsets.left;
+    var rect = document.getElementById("canvas").getBoundingClientRect();
+    var top = rect.top + document.body.scrollTop;
+    var left = rect.left + document.body.scrollLeft;
+
+    var platformDOs = [];
 
     //-------------------------------------------------------------------------
     // TAYLOR FUNCs
@@ -119,17 +121,34 @@
         var lastClicked = 4;
         for (var i = 0; i < platforms.length; i++) {
             if (coords.y > platforms[i].clickY && coords.y < platforms[i].clickY + platforms[i].clickHeight && coords.x > platforms[i].clickX && coords.x < platforms[i].clickX + platforms[i].clickWidth) {
-                $("#" + platforms[i].id).fadeIn("slow");
+                fadeInT(platformDOs[i]);
                 platforms[i].clicked = true;
                 platforms[lastClicked].clicked = false;
                 lastClicked = i;
             } else {
-                $("#" + platforms[i].id).fadeOut("slow");
+                //platformDOs[i].fadeOut("slow");
                 platforms[i].clicked = false;
             }
         }
     });
 
+    function fadeInT(el) {
+        if (el.classList.contains('hidden')||el.classList.contains('fadeOut')){
+            el.classList.remove('hidden');
+            el.classList.remove('fadeOut');
+            el.classList.add('fadeIn');
+        }
+    }
+    function fadeOutT(el) {
+        if (el.classList.contains('fadeIn')){
+            el.classList.remove('fadeIn');
+            el.classList.add('fadeOut');
+        }
+    }
+
+    //-------------------------------------------------------------------------
+    // Explosion on ???
+    //-------------------------------------------------------------------------.
     function Ball(x, y) {
         this.x = x;
         this.y = y;
@@ -193,6 +212,7 @@
 
     function update(dt) {
         updatePlayer(dt);
+        checkPlatforms(player);
         updateBalls();
     }
 
@@ -281,23 +301,25 @@
 
         entity.falling = !(celldown || (nx && celldiag));
 
-        /*Fade in for overlap or click*/
+    }
+
+    function checkPlatforms(entity){
+         /*Fade in for overlap or click*/
         for (n = 0; n < platforms.length; n++) {
             if (overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height)) {
-                $("#" + platforms[n].id).fadeIn("slow");
+                fadeInT(platformDOs[n]);
                 if (n == 4) {
                     /*If you stand on the ??? platform*/
                     spawnBalls();
                 }
             }
-            if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height) && platforms[n].clicked == false) {
-                $("#" + platforms[n].id).fadeOut("slow");
+            if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height) && platforms[n].clicked === false) {
+               fadeOutT(platformDOs[n]);
             }
-            if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height) && platforms[n].clicked == true) {
-                $("#" + platforms[n].id).fadeIn("slow");
+            if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height) && platforms[n].clicked === true) {
+                fadeInT(platformDOs[n]);
             }
         }
-
     }
 
     //-------------------------------------------------------------------------
@@ -306,7 +328,7 @@
 
     function render(ctx, frame, dt) {
         ctx.clearRect(0, 0, width, height);
-        renderMap(ctx);
+        //renderMap(ctx);
         renderHeadlines(platforms);
         renderPlayer(ctx, dt);
         renderBalls();
@@ -337,12 +359,22 @@
             ctx.fillText(plats[n].display, plats[n].start.x, plats[n].start.y + plats[n].height - 20);
         }
     }
+
+    function drawMapOnce(){
+     // create and save the map image
+        mapCache = document.getElementById('canvas2');
+        cachedContext = mapCache.getContext("2d");
+        mapCache.width = canvas.width;
+        mapCache.height = canvas.height;
+        renderMap(cachedContext);
+        ctx.drawImage( mapCache, 0, 0 );
+    //mapRendered = true;
+}
     //-------------------------------------------------------------------------
     // LOAD THE MAP
     //-------------------------------------------------------------------------
     var w = window.innerWidth;
     var h = window.innerHeight;
-    console.log("screen width: " + w + " screen height: " + h);
 
     function setup(map) {
         var data = map.layers[0].data,
@@ -361,6 +393,13 @@
                     break;
             }
         }
+        //get the DOM objs to be accessed by jQuery fadeIn later
+        for ( n = 0; n < platforms.length; n++) {
+            //platformDOs are a collection of jQuery objects right now
+            //doing getElementId causes fadeout to break because its expecting jquery objects
+            platformDOs.push(document.getElementById(platforms[n].id));
+        }
+        console.log(platformDOs);
 
         cells = data;
         /*Scale the x, y and width and height of the platforms for clicking X and Y*/
@@ -378,6 +417,7 @@
                 platforms[j].clickHeight = null;
                 continue;
             }
+            /*Set the clicking zone based on screen size*/
             if (w <= 839 || h <= 529) {
                 platforms[j].clickX = platforms[j].x / xsRatio;
                 platforms[j].clickY = platforms[j].y / xsRatio;
@@ -406,10 +446,7 @@
             } else {
 
             }
-            /*platforms[j].clickX = platforms[j].x/(2048/768);
-            platforms[j].clickY = platforms[j].y/(1536/576);
-            platforms[j].clickWidth = platforms[j].width/(1536/576);
-            platforms[j].clickHeight = platforms[j].height/(1536/576);*/
+
         }
     }
 
@@ -448,14 +485,13 @@
     var counter = 0,
         dt = 0,
         now,
-        last = timestamp(),
+        last = timestamp();
         fpsmeter = new FPSMeter({
             decimals: 0,
             graph: true,
             theme: 'dark',
             left: '5px'
         });
-
     function frame() {
         fpsmeter.tickStart();
         now = timestamp();
@@ -468,7 +504,7 @@
         last = now;
         counter++;
         fpsmeter.tick();
-        requestAnimationFrame(frame, canvas);
+        requestAnimationFrame(frame);
     }
 
     document.addEventListener('keydown', function(ev) {
@@ -478,8 +514,14 @@
         return onkey(ev, ev.keyCode, false);
     }, false);
 
+    /*AJAX call for map, when it's ready start the first frame*/
     get("js/taylorMap.json", function(req) {
         setup(JSON.parse(req.responseText));
+        drawMapOnce();
         frame();
+        //pass in player data to the touch events file
+        touchFile(player);
     });
-})();
+};
+platformer();
+console.log("Hmmm, maybe try changing the background color to gray \n");
