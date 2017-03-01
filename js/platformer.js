@@ -486,15 +486,14 @@ var platformer = function() { // module pattern
         dt = 0,
         now,
         last = timestamp();
-        /*fpsmeter = new FPSMeter({
+        fpsmeter = new FPSMeter({
             decimals: 0,
             graph: true,
             theme: 'dark',
             left: '5px'
         });
-        */
     function frame() {
-        //fpsmeter.tickStart();
+        fpsmeter.tickStart();
         now = timestamp();
         dt = dt + Math.min(1, (now - last) / 1000);
         while (dt > step) {
@@ -504,7 +503,7 @@ var platformer = function() { // module pattern
         render(ctx, counter, dt);
         last = now;
         counter++;
-        //fpsmeter.tick();
+        fpsmeter.tick();
         requestAnimationFrame(frame);
     }
 
