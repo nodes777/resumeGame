@@ -21,62 +21,8 @@
     position: absolute;
     z-index: 1;
 }
-.contact{
-    margin-left: 2em;
-	color: white;
-	position: absolute;
-	z-index: 1;
-	text-align: center;
-}
 
-.pongplus{
-    margin-left: 2em;
-    color: white;
-    position: absolute;
-    z-index: 1;
-    text-align: center;
-}
-
-.mapventure{
-    margin-left: 2em;
-    color: white;
-    position: absolute;
-    z-index: 1;
-    text-align: center;
-}
-
-.angular{
-    margin-left: 2em;
-    color: white;
-    position: absolute;
-    z-index: 1;
-    text-align: center;
-}
-
-.nodejs{
-    margin-left: 2em;
-    color: white;
-    position: absolute;
-    z-index: 1;
-    text-align: center;
-}
-
-.harold{
-    margin-left: 2em;
-    color: white;
-    position: absolute;
-    z-index: 1;
-    text-align: center;
-}
-.music{
-    margin-left: 2em;
-    color: white;
-    position: absolute;
-    z-index: 1;
-    text-align: center;
-}
-
-.skills{
+.projectDisplay{
     margin-left: 2em;
     color: white;
     position: absolute;
@@ -84,12 +30,9 @@
     text-align: center;
 
 }
-.mystery{
-    margin-left: 2em;
-    color: white;
-    position: absolute;
-    z-index: 1;
-    text-align: center;
+
+.hidden{
+    opacity: 0;
 }
 ul.list li {
     list-style-type: none;
@@ -111,22 +54,20 @@ ul.list li {
 }
 
 .fadeIn{
-    display: none;
-	-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 2s; /* Firefox < 16 */
-        -ms-animation: fadein 2s; /* Internet Explorer */
-         -o-animation: fadein 2s; /* Opera < 12.1 */
-            animation: fadein 2s;
+	-webkit-animation: fadein 2s forwards; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s forwards; /* Firefox < 16 */
+        -ms-animation: fadein 2s forwards; /* Internet Explorer */
+         -o-animation: fadein 2s forwards; /* Opera < 12.1 */
+            animation: fadein 2s forwards;
 
 }
 
 .fadeOut{
-    display: block;
-    -webkit-animation: fadeOut 2s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadeOut 2s; /* Firefox < 16 */
-        -ms-animation: fadeOut 2s; /* Internet Explorer */
-         -o-animation: fadeOut 2s; /* Opera < 12.1 */
-            animation: fadeOut 2s;
+    -webkit-animation: fadeOut 2s forwards; /* Safari, Chrome and Opera > 12.1*/
+       -moz-animation: fadeOut 2s forwards; /* Firefox < 16 */
+        -ms-animation: fadeOut 2s forwards; /* Internet Explorer */
+         -o-animation: fadeOut 2s forwards; /* Opera < 12.1 */
+            animation: fadeOut 2s forwards;
 }
 
 @keyframes fadein {

@@ -126,11 +126,26 @@ var platformer = function() { // module pattern
                 platforms[lastClicked].clicked = false;
                 lastClicked = i;
             } else {
-                platformDOs[i].fadeOut("slow");
+                //platformDOs[i].fadeOut("slow");
                 platforms[i].clicked = false;
             }
         }
     });
+
+    function fadeInT(el) {
+        if (el.classList.contains('hidden')||el.classList.contains('fadeOut')){
+            el.classList.remove('hidden');
+            el.classList.remove('fadeOut');
+            el.classList.add('fadeIn');
+        }
+    }
+    function fadeOutT(el) {
+        if (el.classList.contains('fadeIn')){
+            el.classList.remove('fadeIn');
+            el.classList.add('fadeOut');
+        }
+    }
+
     //-------------------------------------------------------------------------
     // Explosion on ???
     //-------------------------------------------------------------------------.
@@ -292,17 +307,17 @@ var platformer = function() { // module pattern
          /*Fade in for overlap or click*/
         for (n = 0; n < platforms.length; n++) {
             if (overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height)) {
-                platformDOs[n].fadeIn("slow");
+                fadeInT(platformDOs[n]);
                 if (n == 4) {
                     /*If you stand on the ??? platform*/
                     spawnBalls();
                 }
             }
             if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height) && platforms[n].clicked === false) {
-                platformDOs[n].fadeOut("slow");
+               fadeOutT(platformDOs[n]);
             }
             if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height) && platforms[n].clicked === true) {
-                platformDOs[n].fadeIn("slow");
+                //platformDOs[n].fadeIn("slow");
             }
         }
     }
@@ -381,7 +396,9 @@ var platformer = function() { // module pattern
         }
         //get the DOM objs to be accessed by jQuery fadeIn later
         for ( n = 0; n < platforms.length; n++) {
-            platformDOs.push($("#" + platforms[n].id));
+            //platformDOs are a collection of jQuery objects right now
+            //doing getElementId causes fadeout to break because its expecting jquery objects
+            platformDOs.push(document.getElementById(platforms[n].id));
         }
         console.log(platformDOs);
 
