@@ -1,0 +1,51 @@
+Optimizing
+==========================
+
+Two Problems:
+* Repainting the map every frame
+* Fading in or out on every frame, because I was always applying a jQuery fadeIn or FadeOut whether or not I was on the platform.
+
+
+Map Repainting Fix
+==================
+* Added a second canvas in html
+
+```
+<canvas id="canvas" class="canvas canvasLower">
+      <div class="unsupported">
+        <p>Sorry, this example cannot be run because your browser does not support the &lt;canvas&gt; element</p>
+        <p>Please visit <a href="./mobile/index.html">my supported site instead</a></p>
+      </div>
+    </canvas>
+    <canvas class="canvas upperCanvas" id="canvas2"></canvas>
+```
+
+* In the CSS, defined the canvases on top of eachother
+```CSS
+.canvasLower{
+    z-index: 0;
+    position: absolute;
+}
+.canvasUpper{
+    z-index: 2;
+    position: absolute;
+}
+```
+* Painted that canvas once with the JSON data
+
+```javascript
+function drawMapOnce(){
+     // create and save the map image
+        mapCache = document.getElementById('canvas2');
+        cachedContext = mapCache.getContext("2d");
+        mapCache.width = canvas.width;
+        mapCache.height = canvas.height;
+        renderMap(cachedContext);
+        ctx.drawImage( mapCache, 0, 0 );
+    //mapRendered = true;
+}
+```
+
+Fading Fix
+==================
+

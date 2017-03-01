@@ -16,6 +16,7 @@ TO DOs
   * When displaying fact div the new div obscures the view
   * Camera could move?
 * Add live clients?
+* Render Headlines Once with original map render
 
 ATTRIBUTIONS
 ==================
