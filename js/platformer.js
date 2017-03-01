@@ -121,7 +121,7 @@ var platformer = function() { // module pattern
         var lastClicked = 4;
         for (var i = 0; i < platforms.length; i++) {
             if (coords.y > platforms[i].clickY && coords.y < platforms[i].clickY + platforms[i].clickHeight && coords.x > platforms[i].clickX && coords.x < platforms[i].clickX + platforms[i].clickWidth) {
-                platformDOs[i].fadeIn("slow");
+                fadeInT(platformDOs[i]);
                 platforms[i].clicked = true;
                 platforms[lastClicked].clicked = false;
                 lastClicked = i;
@@ -317,7 +317,7 @@ var platformer = function() { // module pattern
                fadeOutT(platformDOs[n]);
             }
             if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height) && platforms[n].clicked === true) {
-                //platformDOs[n].fadeIn("slow");
+                fadeInT(platformDOs[n]);
             }
         }
     }
