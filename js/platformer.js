@@ -329,7 +329,7 @@ var platformer = function() { // module pattern
     function render(ctx, frame, dt) {
         ctx.clearRect(0, 0, width, height);
         //renderMap(ctx);
-        renderHeadlines(platforms);
+        //renderHeadlines(platforms);
         renderPlayer(ctx, dt);
         renderBalls();
     }
@@ -354,9 +354,9 @@ var platformer = function() { // module pattern
 
     function renderHeadlines(plats) {
         for (n = 0; n < plats.length; n++) {
-            ctx.font = "40px Titillium Web";
-            ctx.fillStyle = COLOR.YELLOW;
-            ctx.fillText(plats[n].display, plats[n].start.x, plats[n].start.y + plats[n].height - 20);
+            cachedContext.font = "40px Titillium Web";
+            cachedContext.fillStyle = COLOR.YELLOW;
+            cachedContext.fillText(plats[n].display, plats[n].start.x, plats[n].start.y + plats[n].height - 20);
         }
     }
 
@@ -367,8 +367,8 @@ var platformer = function() { // module pattern
         mapCache.width = canvas.width;
         mapCache.height = canvas.height;
         renderMap(cachedContext);
+        renderHeadlines(platforms); 
         ctx.drawImage( mapCache, 0, 0 );
-    //mapRendered = true;
 }
     //-------------------------------------------------------------------------
     // LOAD THE MAP

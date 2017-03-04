@@ -7,7 +7,6 @@ A unique way to show off my [Portfolio](http://taylornodell.com).
  * I used the [Tiled Map Editor](http://www.mapeditor.org/) to build the stage
  * Projects are illuminated when the player stands on a platform
  * Click events above platforms also illuminate projects
- * Theres
 
 
 TO DOs
