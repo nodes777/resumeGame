@@ -22,15 +22,13 @@
 </style>
 
 <link rel="stylesheet" type="text/css" href="css/styles.css">
-
 <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
-<link rel="stylesheet" href="https://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
 
 <script src="js/modernizr-custom.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/jquery-3.2.0.slim.min.js"></script>
 <script src="js/jquery.mobile.custom.min.js"></script>
 <script src="js/touch.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/bootstrap.min.js"></script>
 
 </head>
 
@@ -106,7 +104,7 @@
         <p>Frameworks: requestAnimationFrame, Object Oriented Programming, Collision Physics, HTML5 Canvas, JSON</p>
     </div>
     <div id="music" class ="projectDisplay hidden col-sm-4">
-        <iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=4239554309/size=small/bgcol=ffffff/linkcol=0687f5/artwork=none/transparent=true/" seamless><a href="http://taylornodell.bandcamp.com/album/i-pet-a-dog">I Pet A Dog by Taylor Nodell</a></iframe>
+        <iframe id="iframe" style="border: 0; width: 100%; height: 42px;" src="">I Pet A Dog by Taylor Nodell</a></iframe>
         <h4>Music</h4>
         <p>Good jump! Here's some music I made</p>
         </div>
@@ -124,18 +122,14 @@
     <img src="img/upArrow.png" alt="" id ="touchIconUp" class="touchIcons upArrow">
   </div>
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
-<script>
-  WebFont.load({
-    google: {
-      families: ['Titillium Web', 'Sans Serif']
-    }
-  });
-</script>
  <script src="js/fpsmeter.min.js"></script>
-
-  <script src="js/platformer.js"></script>
+ <script src="js/platformer.js"></script>
+ <script type="text/javascript">
+  setTimeout(function() {
+    var f = document.getElementById('iframe');
+    f.src = 'https://bandcamp.com/EmbeddedPlayer/album=4239554309/size=small/bgcol=ffffff/linkcol=0687f5/artwork=none/transparent=true/';
+  }, 10);
+  </script>
 
 </body>
 </html>

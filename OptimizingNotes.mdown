@@ -137,3 +137,23 @@ function fadeInT(el) {
 * Don't redraw what you don't need to
 * Think critically about using jQuery
 * Animations with CSS are handy
+
+
+
+#Loading Optimizations
+======================
+Changed AJAX to local
+* Don't have to wait for request
+* Slim build of jQuery and Jquery mobile
+
+##iFrame defer load
+==================
+changed from loading the bandcamp iframe in the html to:
+<iframe id="iframe" style="border: 0; width: 100%; height: 42px;" src="">I Pet A Dog by Taylor Nodell</a></iframe>
+
+<script type="text/javascript">
+  setTimeout(function() {
+    var f = document.getElementById('iframe');
+    f.src = 'https://bandcamp.com/EmbeddedPlayer/album=4239554309/size=small/bgcol=ffffff/linkcol=0687f5/artwork=none/transparent=true/';
+  }, 10);
+  </script>
