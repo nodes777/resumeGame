@@ -157,3 +157,6 @@ changed from loading the bandcamp iframe in the html to:
     f.src = 'https://bandcamp.com/EmbeddedPlayer/album=4239554309/size=small/bgcol=ffffff/linkcol=0687f5/artwork=none/transparent=true/';
   }, 10);
   </script>
+
+DOM loaded in 2.41 secs
+Full load in 4.41 secs
