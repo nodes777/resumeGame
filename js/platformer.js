@@ -304,19 +304,21 @@ var platformer = function() { // module pattern
     }
 
     function checkPlatforms(entity){
-         /*Fade in for overlap or click*/
+         //Fade in for overlap or click
         for (n = 0; n < platforms.length; n++) {
-            if (overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height)) {
+        var entityOverLappingPlatform = overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height);
+
+            if (entityOverLappingPlatform) {
                 fadeInT(platformDOs[n]);
                 if (n == 4) {
-                    /*If you stand on the ??? platform*/
+                    //If you stand on the ??? platform
                     spawnBalls();
                 }
             }
-            if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height) && platforms[n].clicked === false) {
+            if (!entityOverLappingPlatform && platforms[n].clicked === false) {
                fadeOutT(platformDOs[n]);
             }
-            if (!overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height) && platforms[n].clicked === true) {
+            if (!entityOverLappingPlatform && platforms[n].clicked === true) {
                 fadeInT(platformDOs[n]);
             }
         }
