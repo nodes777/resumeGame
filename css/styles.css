@@ -29,7 +29,9 @@
     z-index: 1;
     text-align: center;
 }
-
+.bolded{
+    font-weight: bold
+}
 .hidden{
     opacity: 0;
 }

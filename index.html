@@ -36,8 +36,8 @@
 
   <h1 class="taylor">Taylor Nodell</h1>
   <div id="" class="instructions">
-      <p><b>LEFT/RIGHT</b> arrows to move</p>
-      <p><b>SPACE</b> to jump.</p>
+      <p><span class = "bolded"></span>LEFT/RIGHT</span> arrows to move</p>
+      <p><span class ="bolded">SPACE</span> to jump</p>
   </div>
   <div id="platformer" class="row">
     <div id="contact" class="projectDisplay hidden col-md-4">
@@ -70,32 +70,32 @@
       <p>Here's the source code for this <a href="https://github.com/nodes777/resumeGame">portfolio game</a>.</p>
     </div>
     <div id="pong" class ="projectDisplay hidden col-sm-4">
-        <a href="./pongplus/index.html"><img class = "grow" src="img/pong.JPG"></a>
+        <a href="./pongplus/index.html"><img class = "grow" src="img/pong.JPG" alt="Pong Game"></a>
         <h4><a href="./pongplus/index.html">Pong Plus</a></h4>
         <p>A pong clone made with HTML5's Canvas. I use the prototypical method of object construction and my own MV* method to update the scores. You can read about my process <a href="http://tayloredtotaylor.blogspot.com/2016/04/i-made-pong-clone.html">here</a>.</p>
         <p>Frameworks: Bootstrap, jQuery, MVC, Prototypical Object Construction, </p>
-        <p><a href="https://github.com/nodes777/pongplus">Source Code</a></p>
+        <p><a href="https://github.com/nodes777/pongplus">Pong Source Code</a></p>
       </div>
     <div id="mapventure" class="projectDisplay hidden col-sm-4">
-        <a href="./mapventure/index.html"><img class = "grow" src="img/mapVenturesmall.JPG"></a>
+        <a href="./mapventure/index.html"><img class = "grow" src="img/mapVenturesmall.JPG" alt="Google Map based story game"></a>
         <h4><a href="./mapventure/index.html">Mapventure</a></h4>
         <p>Based on a Udacity project, I expanded upon my original work to make it more like a game. The player has a "choose your own adventure" style map. Choices are based on a typical day off in Port Douglas, where I spent several months working.</p>
         <p>Frameworks: Bootstrap, jQuery, knockout.js, Google Maps API, Open Weather API</p>
-        <p><a href="https://github.com/nodes777/mapventure">Source Code</a></p>
+        <p><a href="https://github.com/nodes777/mapventure">Map Source Code</a></p>
     </div>
     <div id="angular" class ="projectDisplay hidden col-sm-4">
-        <a href="./bookstore/index.html"><img class = "grow" src="img/bookstoresmall.JPG"></a>
+        <a href="./bookstore/index.html"><img class = "grow" src="img/bookstoresmall.JPG" alt="Angular Bookstore"></a>
         <h4><a href="./bookstore/index.html">Angular Bookstore</a></h4>
         <p>My first entry into the world of Angular. This is a book "store", showcasing a few of my favorite books. I give my take on why the book is one of my favorites and then I pull data from Google Books to provide a description, specs and images. </p>
         <p>Frameworks: Angular.js, Google Books API, JSON, Bootstrap</p>
-        <p><a href="https://github.com/nodes777/shapingUpWithAngular">Source Code</a></p>
+        <p><a href="https://github.com/nodes777/shapingUpWithAngular">Angular Source Code</a></p>
     </div>
     <div id="nodejs" class ="projectDisplay hidden col-sm-4">
-        <a href="http://nodes777.github.io/" target="_blank"><img class = "grow" src="img/nodejs.JPG"></a>
-        <h4><a href="https://twitter.com/carl_semken" target="_blank">Node.js</a></h4>
+        <a href="http://nodes777.github.io/" target="_blank"><img class = "grow" src="img/nodejs.JPG" alt="Twitter page for Pokedex bot"></a>
+        <h4><a href="https://twitter.com/carl_semken" target="_blank">Node.js Bot</a></h4>
         <p>A a Twitter Bot I built that tweets out a random pokemon every 4 hours</p>
         <p>Frameworks: Node.js, Twitter API, PokemonAPI, JSON, Javascript Promises</p>
-        <p><a href="https://github.com/nodes777/carlsemken">Source Code</a></p>
+        <p><a href="https://github.com/nodes777/carlsemken">Bot Source Code</a></p>
     </div>
     <div id="harold" class ="projectDisplay hidden col-sm-4">
         <a href="./haroldGame/index.html" target="_blank"><img class = "grow" src="img/harold.JPG"></a>
@@ -104,7 +104,7 @@
         <p>Frameworks: requestAnimationFrame, Object Oriented Programming, Collision Physics, HTML5 Canvas, JSON</p>
     </div>
     <div id="music" class ="projectDisplay hidden col-sm-4">
-        <iframe id="iframe" style="border: 0; width: 100%; height: 42px;" src="">I Pet A Dog by Taylor Nodell</a></iframe>
+        <iframe id="iframe" title="Bandcamp Music Player" style="border: 0; width: 100%; height: 42px;" src="">I Pet A Dog by Taylor Nodell</a></iframe>
         <h4>Music</h4>
         <p>Good jump! Here's some music I made</p>
         </div>
@@ -125,6 +125,7 @@
  <script src="js/fpsmeter.min.js"></script>
  <script src="js/platformer.js"></script>
  <script type="text/javascript">
+ //script to delay load of bandcamp player, unblocks DOM
   setTimeout(function() {
     var f = document.getElementById('iframe');
     f.src = 'https://bandcamp.com/EmbeddedPlayer/album=4239554309/size=small/bgcol=ffffff/linkcol=0687f5/artwork=none/transparent=true/';

@@ -401,7 +401,6 @@ var platformer = function() { // module pattern
             //doing getElementId causes fadeout to break because its expecting jquery objects
             platformDOs.push(document.getElementById(platforms[n].id));
         }
-        console.log(platformDOs);
 
         cells = data;
         /*Scale the x, y and width and height of the platforms for clicking X and Y*/
