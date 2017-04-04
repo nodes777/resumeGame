@@ -314,9 +314,12 @@ var platformer = function() { // module pattern
                     //If you stand on the ??? platform
                     spawnBalls();
                 }
+                //focus on that element so you can tab around on it
+                platformDOs[n].focus();
             }
             if (!entityOverLappingPlatform && platforms[n].clicked === false) {
                fadeOutT(platformDOs[n]);
+               platformDOs[n].blur();
             }
             if (!entityOverLappingPlatform && platforms[n].clicked === true) {
                 fadeInT(platformDOs[n]);

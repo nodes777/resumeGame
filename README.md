@@ -36,6 +36,7 @@ FRAMEWORKS AND LIBRARIES
 BUGS
 ==================
 
+* Clicking causes links to stay on the first platforms link. ie Clicking nodejs then Javascript game displays the javascript game, but the link is nodejs
 * Clicking while character is on a platform causes divs to lay on top on eachother
 
 
