@@ -34,6 +34,7 @@
 }
 .hidden{
     opacity: 0;
+    display: none;
 }
 ul.list li {
     list-style-type: none;
@@ -102,29 +103,29 @@ ul.list li {
 /*Fade out*/
 @keyframes fadeOut {
     from { opacity: 1; }
-    to   { opacity: 0; }
+    to   { opacity: 0; visibility: hidden; }
 }
 
 /* Firefox < 16 */
 @-moz-keyframes fadeOut {
     from { opacity: 1; }
-    to   { opacity: 0; }
+    to   { opacity: 0; visibility: hidden; }
 }
 
 /* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes fadeOut {
     from { opacity: 1; }
-    to   { opacity: 0; }
+    to   { opacity: 0; visibility: hidden; }
 }
 
 /* Internet Explorer */
 @-ms-keyframes fadeOut {
     from { opacity: 1; }
-    to   { opacity: 0; }
+    to   { opacity: 0; visibility: hidden; display: none }
 }
 
 /* Opera < 12.1 */
 @-o-keyframes fadeOut {
     from { opacity: 1; }
-    to   { opacity: 0; }
+    to   { opacity: 0; visibility: hidden; }
 }

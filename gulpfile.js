@@ -3,15 +3,15 @@ var gulp = require('gulp');
 
 // Include Our Plugins
 //var jshint = require('gulp-jshint');
-var sass = require('gulp-sass');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
+//var sass = require('gulp-sass');
+//var concat = require('gulp-concat');
+//var uglify = require('gulp-uglify');
+//var rename = require('gulp-rename');
 var browserSync = require('browser-sync').create();
 
-var minifyHtml = require("gulp-minify-html");
-var minifyCss = require("gulp-minify-css");
-var imagemin = require('gulp-imagemin');
+//var minifyHtml = require("gulp-minify-html");
+//var minifyCss = require("gulp-minify-css");
+//var imagemin = require('gulp-imagemin');
 
 
 gulp.task('imagemin', function (){
