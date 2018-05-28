@@ -398,6 +398,7 @@ var platformer = function() { // module pattern
                     break;
             }
         }
+
         //get the DOM objs to be accessed by jQuery fadeIn later
         for ( n = 0; n < platforms.length; n++) {
             //platformDOs are a collection of jQuery objects right now
@@ -457,8 +458,13 @@ var platformer = function() { // module pattern
     function setupEntity(obj) {
         var entity = {};
         entity.name = obj.name.charAt(0).toUpperCase() + obj.name.slice(1);
-        entity.display = obj.properties.display;
-        entity.id = obj.properties.id;
+        // Rewrote display and id because Tiled updated
+        entity.display = obj.properties[0].value;
+        // This is harder to read now, because properties is now an array and not an object
+        if(obj.properties.length > 1 ){
+            entity.id = obj.properties[1].value;
+        }
+
         entity.clicked = false;
         entity.x = obj.x;
         entity.y = obj.y;

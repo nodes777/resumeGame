@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="48" tilewidth="32" tileheight="32" nextobjectid="22">
+<map version="1.0" tiledversion="2018.05.24" orientation="orthogonal" renderorder="right-down" width="64" height="48" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="22">
  <tileset firstgid="1" name="tiles" tilewidth="32" tileheight="32" tilecount="5" columns="5">
   <image source="tiles.png" width="160" height="32"/>
  </tileset>
- <layer name="Tiles" width="64" height="48">
+ <layer id="1" name="Tiles" width="64" height="48">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 2,2,0,0,0,0,0,0,0,0,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,0,2,2,
@@ -55,7 +55,7 @@
 4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5
 </data>
  </layer>
- <objectgroup name="input_tiles">
+ <objectgroup id="2" name="input_tiles">
   <object id="1" name="player" type="player" x="290.758" y="47.2727" width="22" height="22">
    <properties>
     <property name="gravity" value=""/>
@@ -67,10 +67,10 @@
     <property name="id" value="contact"/>
    </properties>
   </object>
-  <object id="5" name="Pong Plus" type="platform" x="1057.58" y="731.03" width="252.545" height="232.545">
+  <object id="5" name="JS Game Engine" type="platform" x="1057.58" y="731.03" width="252.545" height="232.545">
    <properties>
-    <property name="display" value="MVC Architecture"/>
-    <property name="id" value="pong"/>
+    <property name="display" value="JS Game Engine"/>
+    <property name="id" value="gameengine"/>
    </properties>
   </object>
   <object id="6" name="Angular Bookstore" type="platform" x="1697.09" y="514.3" width="219.273" height="199.576">
