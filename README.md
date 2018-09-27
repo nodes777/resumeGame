@@ -20,7 +20,7 @@ TO DOs
 ATTRIBUTIONS
 ==================
 
-* [Jake Gordon](http://codeincomplete.com/) - Game Engine
+* [Jake Gordon](http://codeincomplete.com/) - Original Game Engine
 * [Modernizer](https://modernizr.com/) - Mobile Detection
 * [Noun Project](https://thenounproject.com/) - Arrow Icons
 * [Tiled](http://www.mapeditor.org/) - Map Builder
