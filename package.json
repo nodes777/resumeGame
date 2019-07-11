@@ -24,7 +24,7 @@
     "gulp-minify-html": "^1.0.6",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^4.0.2",
-    "gulp-uglify": "^2.0.0",
+    "gulp-uglify": "^3.0.2",
     "jshint": "^2.9.3"
   },
   "dependencies": {
