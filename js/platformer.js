@@ -161,9 +161,11 @@ var platformer = function() {
         }
     }
     function fadeOutT(el) {
-        if (el.classList.contains("fadeIn")) {
-            el.classList.remove("fadeIn");
-            el.classList.add("fadeOut");
+        if (el !== null) {
+            if (el.classList.contains("fadeIn")) {
+                el.classList.remove("fadeIn");
+                el.classList.add("fadeOut");
+            }
         }
     }
 
@@ -346,7 +348,9 @@ var platformer = function() {
             }
             if (!entityOverLappingPlatform && platforms[n].clicked === false) {
                 fadeOutT(platformDOs[n]);
-                platformDOs[n].blur();
+                if (platformDOs[n]) {
+                    platformDOs[n].blur();
+                }
             }
             if (!entityOverLappingPlatform && platforms[n].clicked === true) {
                 fadeInT(platformDOs[n]);
@@ -569,7 +573,7 @@ var platformer = function() {
     );
 
     /*AJAX call for map, when it's ready start the first frame*/
-    get("js/taylorMap.json", function(req) {
+    get("js/taylorMap10-15-2019.json", function(req) {
         setup(JSON.parse(req.responseText));
         drawMapOnce();
         frame();
