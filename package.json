@@ -20,6 +20,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-imagemin": "^6.0.0",
     "gulp-jshint": "^2.0.1",
+    "gulp-jsonminify": "^1.1.0",
     "gulp-minify-css": "^1.2.4",
     "gulp-minify-html": "^1.0.6",
     "gulp-rename": "^1.2.2",

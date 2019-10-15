@@ -10,6 +10,7 @@ var rename = require("gulp-rename");
 var minifyHtml = require("gulp-minify-html");
 var minifyCss = require("gulp-minify-css");
 var imagemin = require("gulp-imagemin");
+var jsonminify = require("gulp-jsonminify");
 
 // this task works, even though you have no sass
 gulp.task("sass", function() {
@@ -27,7 +28,14 @@ gulp.task("scripts", function() {
         .pipe(uglify())
         .pipe(gulp.dest("dist/js"));
 });
+// Concatenate & Minify JSON
 
+gulp.task("jsonmin", function() {
+    return gulp
+        .src(["js/*.json"])
+        .pipe(jsonminify())
+        .pipe(gulp.dest("dist/js"));
+});
 gulp.task("imagemin", function() {
     return gulp
         .src("img/*")
@@ -43,7 +51,8 @@ gulp.task("minify-css", function() {
 });
 
 gulp.task("minify-html", function() {
-    gulp.src("*.html") // path to your files
+    return gulp
+        .src("*.html") // path to your files
         .pipe(minifyHtml())
         .pipe(gulp.dest("dist"));
 });

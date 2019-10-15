@@ -10,7 +10,7 @@ A unique way to show off my [Portfolio](http://taylornodell.com).
 # Running Locally
 
 1. `npm install`
-2. `gulp server`
+2. `gulp serve`
 
 # TO DOs
 
