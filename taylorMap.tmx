@@ -79,9 +79,9 @@
     <property name="id" value="angular"/>
    </properties>
   </object>
-  <object id="8" name="Node.js" type="platform" x="1696" y="1124" width="220" height="196">
+  <object id="8" name="D3" type="platform" x="1696" y="1124" width="220" height="196">
    <properties>
-    <property name="display" value="Node.js"/>
+    <property name="display" value="D3 and Node"/>
     <property name="id" value="nodejs"/>
    </properties>
   </object>
@@ -97,10 +97,10 @@
     <property name="id" value="music"/>
    </properties>
   </object>
-  <object id="15" name="Mapventure" type="platform" x="1728.3" y="58.303" width="257.576" height="200">
+  <object id="15" name="React" type="platform" x="1728.3" y="58.303" width="257.576" height="200">
    <properties>
-    <property name="display" value="API Calls"/>
-    <property name="id" value="mapventure"/>
+    <property name="display" value="React"/>
+    <property name="id" value="react"/>
    </properties>
   </object>
   <object id="19" name="Skills" type="platform" x="480.33" y="1088" width="223.67" height="197.333">

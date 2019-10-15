@@ -104,12 +104,12 @@
                 {
                  "height":196,
                  "id":8,
-                 "name":"Node.js",
+                 "name":"D3",
                  "properties":[
                         {
                          "name":"display",
                          "type":"string",
-                         "value":"Node.js"
+                         "value":"D3 and Node"
                         }, 
                         {
                          "name":"id",
@@ -170,17 +170,17 @@
                 {
                  "height":200,
                  "id":15,
-                 "name":"Mapventure",
+                 "name":"React",
                  "properties":[
                         {
                          "name":"display",
                          "type":"string",
-                         "value":"API Calls"
+                         "value":"React"
                         }, 
                         {
                          "name":"id",
                          "type":"string",
-                         "value":"mapventure"
+                         "value":"react"
                         }],
                  "rotation":0,
                  "type":"platform",

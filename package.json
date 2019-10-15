@@ -1,5 +1,5 @@
 {
-  "name": "Portfolio Platformer",
+  "name": "portfolio-platformer",
   "version": "1.0.0",
   "description": "Javascript Tiny-Platformer\r ==========================",
   "main": "platformer.js",
@@ -29,6 +29,8 @@
   },
   "dependencies": {
     "browser-sync": "^2.23.6",
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-refresh": "^1.1.0"
   }
 }

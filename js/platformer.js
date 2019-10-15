@@ -1,11 +1,14 @@
-var platformer = function() { // module pattern
+var platformer = function() {
+    // module pattern
 
     //-------------------------------------------------------------------------
     // POLYFILLS
     //-------------------------------------------------------------------------
 
-    if (!window.requestAnimationFrame) { // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
-        window.requestAnimationFrame = window.webkitRequestAnimationFrame ||
+    if (!window.requestAnimationFrame) {
+        // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+        window.requestAnimationFrame =
+            window.webkitRequestAnimationFrame ||
             window.mozRequestAnimationFrame ||
             window.oRequestAnimationFrame ||
             window.msRequestAnimationFrame ||
@@ -19,7 +22,9 @@ var platformer = function() { // module pattern
     //-------------------------------------------------------------------------
 
     function timestamp() {
-        return window.performance && window.performance.now ? window.performance.now() : new Date().getTime();
+        return window.performance && window.performance.now
+            ? window.performance.now()
+            : new Date().getTime();
     }
 
     function bound(x, min, max) {
@@ -29,7 +34,7 @@ var platformer = function() { // module pattern
     function get(url, onsuccess) {
         var request = new XMLHttpRequest();
         request.onreadystatechange = function() {
-            if ((request.readyState == 4) && (request.status == 200))
+            if (request.readyState == 4 && request.status == 200)
                 onsuccess(request);
         };
         request.open("GET", url, true);
@@ -37,10 +42,12 @@ var platformer = function() { // module pattern
     }
 
     function overlap(x1, y1, w1, h1, x2, y2, w2, h2) {
-        return !(((x1 + w1 - 1) < x2) ||
-            ((x2 + w2 - 1) < x1) ||
-            ((y1 + h1 - 1) < y2) ||
-            ((y2 + h2 - 1) < y1));
+        return !(
+            x1 + w1 - 1 < x2 ||
+            x2 + w2 - 1 < x1 ||
+            y1 + h1 - 1 < y2 ||
+            y2 + h2 - 1 < y1
+        );
     }
 
     //-------------------------------------------------------------------------
@@ -60,16 +67,22 @@ var platformer = function() { // module pattern
         FRICTION = 1 / 6, // default take 1/6 second to stop from maxdx (horizontal friction)
         IMPULSE = 1500, // default player jump impulse
         COLOR = {
-            BLACK: '#111111',
-            YELLOW: '#fffd98',
-            GREEN: '#40a000',
-            LIGHTGREEN: '#80e000',
-            BROWN: '#c06000',
-            DARKBROWN: '#602000',
-            BLUE: '#0006FF',
-            GOLD: 'gold'
+            BLACK: "#111111",
+            YELLOW: "#fffd98",
+            GREEN: "#40a000",
+            LIGHTGREEN: "#80e000",
+            BROWN: "#c06000",
+            DARKBROWN: "#602000",
+            BLUE: "#0006FF",
+            GOLD: "gold"
         },
-        COLORS = [COLOR.YELLOW, COLOR.GREEN, COLOR.BLACK, COLOR.BROWN, COLOR.DARKBROWN],
+        COLORS = [
+            COLOR.YELLOW,
+            COLOR.GREEN,
+            COLOR.BLACK,
+            COLOR.BROWN,
+            COLOR.DARKBROWN
+        ],
         KEY = {
             SPACE: 32,
             LEFT: 37,
@@ -80,10 +93,10 @@ var platformer = function() { // module pattern
 
     var fps = 60,
         step = 1 / fps,
-        canvas = document.getElementById('canvas'),
-        ctx = canvas.getContext('2d'),
-        width = canvas.width = MAP.tw * TILE,
-        height = canvas.height = MAP.th * TILE,
+        canvas = document.getElementById("canvas"),
+        ctx = canvas.getContext("2d"),
+        width = (canvas.width = MAP.tw * TILE),
+        height = (canvas.height = MAP.th * TILE),
         player = {},
         platforms = [],
         cells = [];
@@ -98,7 +111,7 @@ var platformer = function() { // module pattern
             return tcell(p2t(x), p2t(y));
         },
         tcell = function(tx, ty) {
-            return cells[tx + (ty * MAP.tw)];
+            return cells[tx + ty * MAP.tw];
         };
 
     var balls = [];
@@ -113,14 +126,19 @@ var platformer = function() { // module pattern
     //-------------------------------------------------------------------------
     // TAYLOR FUNCs
     //-------------------------------------------------------------------------.
-    canvas.addEventListener('click', function(event) {
+    canvas.addEventListener("click", function(event) {
         var x = event.pageX - left,
             y = event.pageY - top;
         coords.x = x;
         coords.y = y;
         var lastClicked = 4;
         for (var i = 0; i < platforms.length; i++) {
-            if (coords.y > platforms[i].clickY && coords.y < platforms[i].clickY + platforms[i].clickHeight && coords.x > platforms[i].clickX && coords.x < platforms[i].clickX + platforms[i].clickWidth) {
+            if (
+                coords.y > platforms[i].clickY &&
+                coords.y < platforms[i].clickY + platforms[i].clickHeight &&
+                coords.x > platforms[i].clickX &&
+                coords.x < platforms[i].clickX + platforms[i].clickWidth
+            ) {
                 fadeInT(platformDOs[i]);
                 platforms[i].clicked = true;
                 platforms[lastClicked].clicked = false;
@@ -133,16 +151,19 @@ var platformer = function() { // module pattern
     });
 
     function fadeInT(el) {
-        if (el.classList.contains('hidden')||el.classList.contains('fadeOut')){
-            el.classList.remove('hidden');
-            el.classList.remove('fadeOut');
-            el.classList.add('fadeIn');
+        if (
+            el.classList.contains("hidden") ||
+            el.classList.contains("fadeOut")
+        ) {
+            el.classList.remove("hidden");
+            el.classList.remove("fadeOut");
+            el.classList.add("fadeIn");
         }
     }
     function fadeOutT(el) {
-        if (el.classList.contains('fadeIn')){
-            el.classList.remove('fadeIn');
-            el.classList.add('fadeOut');
+        if (el.classList.contains("fadeIn")) {
+            el.classList.remove("fadeIn");
+            el.classList.add("fadeOut");
         }
     }
 
@@ -152,8 +173,8 @@ var platformer = function() { // module pattern
     function Ball(x, y) {
         this.x = x;
         this.y = y;
-        this.x_speed = Math.floor((Math.random() * 10) + 1);
-        this.y_speed = Math.floor((Math.random() * 10) + 1);
+        this.x_speed = Math.floor(Math.random() * 10 + 1);
+        this.y_speed = Math.floor(Math.random() * 10 + 1);
         this.radius = 5;
     }
     /* Create Ball methods*/
@@ -230,28 +251,31 @@ var platformer = function() { // module pattern
         entity.ddx = 0;
         entity.ddy = entity.gravity;
 
-        if (entity.left)
-            entity.ddx = entity.ddx - accel;
-        else if (wasleft)
-            entity.ddx = entity.ddx + friction;
+        if (entity.left) entity.ddx = entity.ddx - accel;
+        else if (wasleft) entity.ddx = entity.ddx + friction;
 
-        if (entity.right)
-            entity.ddx = entity.ddx + accel;
-        else if (wasright)
-            entity.ddx = entity.ddx - friction;
+        if (entity.right) entity.ddx = entity.ddx + accel;
+        else if (wasright) entity.ddx = entity.ddx - friction;
 
         if (entity.jump && !entity.jumping && !falling) {
             entity.ddy = entity.ddy - entity.impulse; // an instant big force impulse
             entity.jumping = true;
         }
 
-        entity.x = entity.x + (dt * entity.dx);
-        entity.y = entity.y + (dt * entity.dy);
-        entity.dx = bound(entity.dx + (dt * entity.ddx), -entity.maxdx, entity.maxdx);
-        entity.dy = bound(entity.dy + (dt * entity.ddy), -entity.maxdy, entity.maxdy);
+        entity.x = entity.x + dt * entity.dx;
+        entity.y = entity.y + dt * entity.dy;
+        entity.dx = bound(
+            entity.dx + dt * entity.ddx,
+            -entity.maxdx,
+            entity.maxdx
+        );
+        entity.dy = bound(
+            entity.dy + dt * entity.ddy,
+            -entity.maxdy,
+            entity.maxdy
+        );
 
-        if ((wasleft && (entity.dx > 0)) ||
-            (wasright && (entity.dx < 0))) {
+        if ((wasleft && entity.dx > 0) || (wasright && entity.dx < 0)) {
             entity.dx = 0; // clamp at zero to prevent friction from making us jiggle side to side
         }
 
@@ -265,8 +289,7 @@ var platformer = function() { // module pattern
             celldiag = tcell(tx + 1, ty + 1);
 
         if (entity.dy > 0) {
-            if ((celldown && !cell) ||
-                (celldiag && !cellright && nx)) {
+            if ((celldown && !cell) || (celldiag && !cellright && nx)) {
                 entity.y = t2p(ty);
                 entity.dy = 0;
                 entity.falling = false;
@@ -274,8 +297,7 @@ var platformer = function() { // module pattern
                 ny = 0;
             }
         } else if (entity.dy < 0) {
-            if ((cell && !celldown) ||
-                (cellright && !celldiag && nx)) {
+            if ((cell && !celldown) || (cellright && !celldiag && nx)) {
                 entity.y = t2p(ty + 1);
                 entity.dy = 0;
                 cell = celldown;
@@ -285,28 +307,33 @@ var platformer = function() { // module pattern
         }
 
         if (entity.dx > 0) {
-            if ((cellright && !cell) ||
-                (celldiag && !celldown && ny)) {
+            if ((cellright && !cell) || (celldiag && !celldown && ny)) {
                 entity.x = t2p(tx);
                 entity.dx = 0;
             }
         } else if (entity.dx < 0) {
-            if ((cell && !cellright) ||
-                (celldown && !celldiag && ny)) {
+            if ((cell && !cellright) || (celldown && !celldiag && ny)) {
                 entity.x = t2p(tx + 1);
                 entity.dx = 0;
             }
         }
 
-
         entity.falling = !(celldown || (nx && celldiag));
-
     }
 
-    function checkPlatforms(entity){
-         //Fade in for overlap or click
+    function checkPlatforms(entity) {
+        //Fade in for overlap or click
         for (n = 0; n < platforms.length; n++) {
-        var entityOverLappingPlatform = overlap(entity.x, entity.y, TILE, TILE, platforms[n].start.x, platforms[n].start.y, platforms[n].width, platforms[n].height);
+            var entityOverLappingPlatform = overlap(
+                entity.x,
+                entity.y,
+                TILE,
+                TILE,
+                platforms[n].start.x,
+                platforms[n].start.y,
+                platforms[n].width,
+                platforms[n].height
+            );
 
             if (entityOverLappingPlatform) {
                 fadeInT(platformDOs[n]);
@@ -318,8 +345,8 @@ var platformer = function() { // module pattern
                 platformDOs[n].focus();
             }
             if (!entityOverLappingPlatform && platforms[n].clicked === false) {
-               fadeOutT(platformDOs[n]);
-               platformDOs[n].blur();
+                fadeOutT(platformDOs[n]);
+                platformDOs[n].blur();
             }
             if (!entityOverLappingPlatform && platforms[n].clicked === true) {
                 fadeInT(platformDOs[n]);
@@ -354,27 +381,36 @@ var platformer = function() { // module pattern
 
     function renderPlayer(ctx, dt) {
         ctx.fillStyle = COLOR.BLUE;
-        ctx.fillRect(player.x + (player.dx * dt), player.y + (player.dy * dt), TILE, TILE);
+        ctx.fillRect(
+            player.x + player.dx * dt,
+            player.y + player.dy * dt,
+            TILE,
+            TILE
+        );
     }
 
     function renderHeadlines(plats) {
         for (n = 0; n < plats.length; n++) {
             cachedContext.font = "40px Titillium Web";
             cachedContext.fillStyle = COLOR.YELLOW;
-            cachedContext.fillText(plats[n].display, plats[n].start.x, plats[n].start.y + plats[n].height - 20);
+            cachedContext.fillText(
+                plats[n].display,
+                plats[n].start.x,
+                plats[n].start.y + plats[n].height - 20
+            );
         }
     }
 
-    function drawMapOnce(){
-     // create and save the map image
-        mapCache = document.getElementById('canvas2');
+    function drawMapOnce() {
+        // create and save the map image
+        mapCache = document.getElementById("canvas2");
         cachedContext = mapCache.getContext("2d");
         mapCache.width = canvas.width;
         mapCache.height = canvas.height;
         renderMap(cachedContext);
-        renderHeadlines(platforms); 
-        ctx.drawImage( mapCache, 0, 0 );
-}
+        renderHeadlines(platforms);
+        ctx.drawImage(mapCache, 0, 0);
+    }
     //-------------------------------------------------------------------------
     // LOAD THE MAP
     //-------------------------------------------------------------------------
@@ -384,7 +420,9 @@ var platformer = function() { // module pattern
     function setup(map) {
         var data = map.layers[0].data,
             objects = map.layers[1].objects,
-            n, obj, entity;
+            n,
+            obj,
+            entity;
 
         for (n = 0; n < objects.length; n++) {
             obj = objects[n];
@@ -400,7 +438,7 @@ var platformer = function() { // module pattern
         }
 
         //get the DOM objs to be accessed by jQuery fadeIn later
-        for ( n = 0; n < platforms.length; n++) {
+        for (n = 0; n < platforms.length; n++) {
             //platformDOs are a collection of jQuery objects right now
             //doing getElementId causes fadeout to break because its expecting jquery objects
             platformDOs.push(document.getElementById(platforms[n].id));
@@ -408,11 +446,11 @@ var platformer = function() { // module pattern
 
         cells = data;
         /*Scale the x, y and width and height of the platforms for clicking X and Y*/
-        var xsRatio = (2048 / 512);
-        var smRatio = (2048 / 640);
-        var mdRatio = (2048 / 768);
-        var lgRatio = (2048 / 896);
-        var xlRatio = (2048 / 1024);
+        var xsRatio = 2048 / 512;
+        var smRatio = 2048 / 640;
+        var mdRatio = 2048 / 768;
+        var lgRatio = 2048 / 896;
+        var xlRatio = 2048 / 1024;
         for (var j = 0; j < platforms.length; j++) {
             if (j === 4) {
                 /*skip the ??? platform, I don't want people to be able to click it*/
@@ -449,9 +487,7 @@ var platformer = function() { // module pattern
                 platforms[j].clickWidth = platforms[j].width / xlRatio;
                 platforms[j].clickHeight = platforms[j].height / xlRatio;
             } else {
-
             }
-
         }
     }
 
@@ -461,7 +497,7 @@ var platformer = function() { // module pattern
         // Rewrote display and id because Tiled updated
         entity.display = obj.properties[0].value;
         // This is harder to read now, because properties is now an array and not an object
-        if(obj.properties.length > 1 ){
+        if (obj.properties.length > 1) {
             entity.id = obj.properties[1].value;
         }
 
@@ -496,12 +532,12 @@ var platformer = function() { // module pattern
         dt = 0,
         now,
         last = timestamp();
-        fpsmeter = new FPSMeter({
-            decimals: 0,
-            graph: true,
-            theme: 'dark',
-            left: '5px'
-        });
+    fpsmeter = new FPSMeter({
+        decimals: 0,
+        graph: true,
+        theme: "dark",
+        left: "5px"
+    });
     function frame() {
         fpsmeter.tickStart();
         now = timestamp();
@@ -517,12 +553,20 @@ var platformer = function() { // module pattern
         requestAnimationFrame(frame);
     }
 
-    document.addEventListener('keydown', function(ev) {
-        return onkey(ev, ev.keyCode, true);
-    }, false);
-    document.addEventListener('keyup', function(ev) {
-        return onkey(ev, ev.keyCode, false);
-    }, false);
+    document.addEventListener(
+        "keydown",
+        function(ev) {
+            return onkey(ev, ev.keyCode, true);
+        },
+        false
+    );
+    document.addEventListener(
+        "keyup",
+        function(ev) {
+            return onkey(ev, ev.keyCode, false);
+        },
+        false
+    );
 
     /*AJAX call for map, when it's ready start the first frame*/
     get("js/taylorMap.json", function(req) {
