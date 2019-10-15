@@ -84,6 +84,7 @@ gulp.task(
             }
         });
 
-        gulp.watch("js/*.js", gulp.series("scripts"));
+        gulp.watch("js/*.js", browserSync.reload);
+        gulp.watch("index.html", browserSync.reload);
     })
 );
