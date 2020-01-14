@@ -26,7 +26,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
-    "jshint": "^2.9.3"
+    "jshint": "^2.11.0"
   },
   "dependencies": {
     "browser-sync": "^2.23.6",
