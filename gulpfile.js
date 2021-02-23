@@ -36,6 +36,7 @@ gulp.task("jsonmin", function() {
         .pipe(jsonminify())
         .pipe(gulp.dest("dist/js"));
 });
+
 gulp.task("imagemin", function() {
     return gulp
         .src("img/*")
